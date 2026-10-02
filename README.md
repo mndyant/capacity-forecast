@@ -1,6 +1,10 @@
-# 容量予測・整備計画 — Capacity Note
+# 容量予測・整備計画
 
 使用量の増加から「容量不足の見込み日」と「整備に着手する期限」を表示する、日本語のローカルWebアプリです。**合成データで評価／実データ未検証**。銀行などの実務精度を示すものではありません。
+
+入力条件と予測結果を分けた業務用UIです。現状・予測・着手期限・対応事項・過去評価のサマリを表示し、TXT／JSONで保存できます。サマリは既存の計算結果から生成するため、追加データやAPIキーは不要です。
+
+![PC画面](docs/screenshots/business-ui/desktop-1280.png)
 
 ## 起動（Windows / PowerShell）
 
@@ -19,11 +23,13 @@ Flaskの開発サーバーを127.0.0.1だけにバインドしています。公
 
 ## 試し方
 
-1. サンプル「安定した増加」を選び「予測と着手期限を確認」を押します。
+1. サンプル「安定した増加」を選び「予測を実行」を押します。
 2. 現在の使用率、容量不足日、着手期限を確認します。着手期限＝到達日−整備期間−安全余裕です。
 3. 上限を1000GBに変えて再計算すると、整備期間を逆算した期限超過を確認できます。9999GBなら期間内未到達です。
-4. グラフと増加ペース別シナリオを確認します。「精度を確認」では比較基準より悪い結果も表示します。
-5. CSV・JSONを保存します。サンプルCSVをダウンロードして、そのまま取込にも使えます。
+4. サマリの対応事項と「増加率別の比較」を確認します。「予測精度・評価条件」では比較基準より悪い結果も表示します。
+5. 「サマリを保存（TXT）」で報告用の文章を保存します。結果JSONにも同じサマリを含み、予測CSVも保存できます。サンプルCSVはダウンロード後、そのまま取込に使えます。
+
+条件変更後や入力エラー時は、古い結果の出力を停止します。「予測を実行」で再計算してください。警戒水準と比較用の増加率は「詳細設定」にまとめています。CSVを選択した場合はCSVを優先し、使用中の入力元を表示します。「ファイル選択を解除」でサンプルへ戻せます。
 
 日付の基準は**PCの今日ではなく、CSVの最終観測日**です。デモの観測期間は2026-01-01〜2026-06-29、180日です。休日を除かない暦日で逆算します。既に満杯の場合は最終観測日を到達済みの基準日とし、実際に最初に満杯になった過去の日付を推定する機能はありません。
 
@@ -51,7 +57,7 @@ UTF-8、列順は `date,used_gb`、単位GB、連続した日次90〜3650点（�
 
 90〜149点のCSVは開発foldを確保できないため比較基準を固定し、監査だけを実施します。150点以上では開発foldを最大5個使い、少ない場合はUIで注記します。内部foldは60点から学習する小標本条件です。長いCSVでは末尾60日を監査用とし、その前の最大5起点で選択します。
 
-詳細：[評価設計と結果](docs/evaluation.md)、[リーク監査](docs/leakage-audit.md)、[Claudeによる独立レビュー](docs/claude-review.txt)、[UI検証記録](docs/verification/ui.json)。
+詳細：[評価設計と結果](docs/evaluation.md)、[リーク監査](docs/leakage-audit.md)、[Claudeによる独立レビュー](docs/claude-review.txt)、[今回のUI・サマリ変更](docs/business-ui.md)、[最新UI検証記録](docs/verification/business-ui/ui.json)。
 
 ## 再現
 
@@ -67,17 +73,20 @@ UTF-8、列順は `date,used_gb`、単位GB、連続した日次90〜3650点（�
 # 監査・APIテスト
 .\.venv\Scripts\python -m pytest -q -p no:faulthandler
 
-# 保存済みの最終評価条件が変わっていないか照合
-.\.venv\Scripts\python -m evaluation.final verify --output evaluation/results/final-v1
+# 最終評価時の版を、現在のUIを変更せず別フォルダへ展開
+git worktree add --detach .evaluation-v1 evaluation-v1
+Push-Location .evaluation-v1
+..\.venv\Scripts\python -m evaluation.final verify --output evaluation/results/final-v1
 
 # 同一実験の再現（結果を上書きせず別名へ保存。新しい独立評価ではありません）
-.\.venv\Scripts\python -m evaluation.final freeze --output evaluation/results/reproduction-v1
-.\.venv\Scripts\python -m evaluation.final run --output evaluation/results/reproduction-v1 --stage final
+..\.venv\Scripts\python -m evaluation.final freeze --output evaluation/results/reproduction-v1
+..\.venv\Scripts\python -m evaluation.final run --output evaluation/results/reproduction-v1 --stage final
+Pop-Location
 ```
 
 採点前に設定・コード・データのSHA-256、seed、依存バージョンを保存します。凍結後の変更があれば採点を停止し、既存の採点記録は上書きしません。途中でプロセスが止まった場合もその記録を残し、別ディレクトリにfreezeしてから再実行してください。結果を見て設定を変える場合、その評価は開発結果へ降格し、**新しい未使用seed**を先に固定して最終評価をやり直す必要があります。
 
-数値結果は再現できますが、処理時間・実行日時は毎回変わります。CSVとソースのハッシュはLF改行に正規化します。この作業開始時のフォルダにはGit管理情報がなかったため、commit IDの代わりにファイルハッシュを記録しています。
+数値結果は再現できますが、処理時間・実行日時は毎回変わります。CSVとソースのハッシュはLF改行に正規化します。最終評価時の全ファイルはタグ `evaluation-v1` に保存しています。現在のブランチではUI・APIにサマリを追加したため、過去の全ソースハッシュとの照合は意図通り不一致になります。古い凍結記録を更新して一致させることはせず、上記のタグで再現します。予測・選択・期限計算・評価器・データは変更していません。
 
 UI検証は任意の開発依存です。アプリの利用には不要です。
 

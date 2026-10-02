@@ -8,8 +8,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def run(browser_path=None):
-    out=ROOT/'docs/verification';out.mkdir(parents=True,exist_ok=True)
-    shots=ROOT/'docs/screenshots';shots.mkdir(parents=True,exist_ok=True)
+    out=ROOT/'docs/verification/business-ui';out.mkdir(parents=True,exist_ok=True)
+    shots=ROOT/'docs/screenshots/business-ui';shots.mkdir(parents=True,exist_ok=True)
     checks=[];errors=[];external=[]
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True,executable_path=browser_path)
@@ -26,6 +26,9 @@ def run(browser_path=None):
         assert page.locator('#chart svg').count()==1
         assert 'GB' in page.locator('#chart').inner_text()
         assert len(page.locator('#hit').inner_text())>0
+        assert page.locator('#summary-items > div').count()==5
+        assert page.locator('#summary-headline').inner_text()=='整備の着手日を設定'
+        assert page.locator('#scenarios tr').count()==3
         checks.append('サンプル→予測→容量不足日→着手期限→グラフ')
         page.locator('#accuracy summary').click()
         assert page.locator('#metrics tr').count()==6
@@ -33,24 +36,33 @@ def run(browser_path=None):
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
         page.screenshot(path=str(shots/'desktop-1280.png'),full_page=True)
         checks.append('1280px：ページの横はみ出しなし・スクリーンショット保存')
-        for selector,filename in [('#export-json','sample-result.json'),('#export-csv','sample-forecast.csv')]:
+        for selector,filename in [('#export-json','sample-result.json'),('#export-csv','sample-forecast.csv'),('#export-summary','sample-summary.txt')]:
             with page.expect_download() as info:
                 page.locator(selector).click()
             info.value.save_as(str(out/filename))
         exported=json.loads((out/'sample-result.json').read_text(encoding='utf-8'))
         assert len(exported['forecast'])==90 and exported['plan']['deadline']
         assert len((out/'sample-forecast.csv').read_text(encoding='utf-8-sig').splitlines())==91
+        assert (out/'sample-summary.txt').read_text(encoding='utf-8-sig')==exported['summary']['text']
+        checks.append('業務サマリの現状・予測・期限・対応・評価を表示し、TXTとJSONの内容一致')
         checks.append('JSON/CSVダウンロードと予測90行・期限の照合')
         with page.expect_download() as info:
             page.locator('#sample-download').click()
         info.value.save_as(str(out/'downloaded-sample.csv'))
         page.locator('#file').set_input_files(str(out/'downloaded-sample.csv'))
+        assert page.locator('#clear-file').is_visible()
+        assert page.locator('#export-summary').is_disabled()
         page.locator('#calculate').click()
         page.wait_for_function("document.getElementById('source').textContent.includes('取込CSV') && !document.getElementById('calculate').disabled")
         checks.append('サンプルCSVダウンロード→再取込→CSV自身の過去評価を表示')
         page.locator('#file').set_input_files({'name':'invalid.csv','mimeType':'text/csv','buffer':b'date,used_gb\n2026-01-01,-2\n'})
         page.locator('#calculate').click();page.locator('#error').wait_for(state='visible')
         assert '0以上' in page.locator('#error').inner_text()
+        assert page.locator('#export-summary').is_disabled()
+        page.locator('#clear-file').click()
+        assert page.locator('#clear-file').is_hidden()
+        assert 'サンプル' in page.locator('#input-source').inner_text()
+        checks.append('入力元・ファイル解除を確認、変更後とエラー時は古いサマリの出力を停止')
         checks.append('不正CSVの日本語エラーと古い結果の表示識別')
         page.locator('#sample').select_option('full')
         assert page.locator('#capacity').input_value()=='800'
@@ -72,6 +84,7 @@ def run(browser_path=None):
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
         assert page.locator('#chart svg').is_visible()
         page.screenshot(path=str(shots/'mobile-390.png'),full_page=True)
+        page.locator('.summary-panel').screenshot(path=str(shots/'mobile-summary.png'))
         checks.append('390px：ページの横はみ出しなし・単位と結果・スクリーンショット保存')
         for horizon in ('7','30'):
             page.locator('select[name=horizon]').select_option(horizon)

@@ -8,6 +8,7 @@ from forecasting.models import predict, LABELS
 from forecasting.planning import plan
 from forecasting.explanation import TemplateExplainer
 from evaluation.backtest import evaluate_history
+from app.summary import build_summary
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLES = {'stable': '安定した増加', 'accelerating': '徐々に加速', 'weekday': '曜日差',
@@ -54,6 +55,7 @@ def compute(frame, settings, source):
         'limitations': '合成データで評価／実データ未検証。90日先は不確実性が大きく、短期の誤差は長期の精度を保証しません。'}
     explanation_input = {key: result[key] for key in ('as_of','parameters','plan','settings','evaluation','limitations')}
     result['explanation'] = TemplateExplainer().explain(explanation_input)
+    result['summary'] = build_summary(result)
     return result
 
 

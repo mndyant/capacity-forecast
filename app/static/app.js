@@ -4,18 +4,36 @@ let result = null;
 const labels = {mean30:'直近30日平均（比較基準）',linear:'線形トレンド',ses:'増加量の指数平滑化'};
 const num = (v,d=1) => Number(v).toLocaleString('ja-JP',{maximumFractionDigits:d,minimumFractionDigits:d});
 const text = (id,value) => {$(id).textContent = value;};
+const exportButtons = ['export-summary','export-csv','export-json'];
+function invalidate(){
+  if(!result)return;
+  $('stale').hidden=false;
+  exportButtons.forEach(id=>$(id).disabled=true);
+}
+function inputSource(){
+  const file=$('file').files[0];
+  text('input-source',file ? `使用データ：${file.name}` : `使用データ：サンプル「${$('sample').selectedOptions[0].textContent}」`);
+  $('clear-file').hidden=!file;
+}
 $('sample').addEventListener('change', () => {
   $('file').value = '';
   $('sample-download').href = `/api/sample/${$('sample').value}`;
   $('capacity').value = $('sample').value === 'full' ? 800 : 1200;
+  inputSource();
 });
-$('forecast-form').addEventListener('input', () => {if(result) $('stale').hidden=false;});
-$('forecast-form').addEventListener('change', () => {if(result) $('stale').hidden=false;});
+$('file').addEventListener('change',inputSource);
+$('clear-file').addEventListener('click',()=>{$('file').value='';inputSource();invalidate();});
+$('forecast-form').addEventListener('input', invalidate);
+$('forecast-form').addEventListener('change', invalidate);
+// 折りたたまれた項目に入力エラーがある場合は開いて修正できるようにする。
+$('forecast-form').addEventListener('invalid',event=>{const details=event.target.closest('details');if(details)details.open=true;},true);
+inputSource();
 $('forecast-form').addEventListener('submit', async event => {
   event.preventDefault();
   if ($('calculate').disabled) return;
   const data = new FormData(event.currentTarget);
   $('error').hidden=true;
+  exportButtons.forEach(id=>$(id).disabled=true);
   const controls = [...event.currentTarget.elements];
   controls.forEach(control => control.disabled=true);
   text('progress','過去データで手法を比較し、予測と整備期限を計算しています…');
@@ -24,16 +42,17 @@ $('forecast-form').addEventListener('submit', async event => {
     const body = await response.json();
     if(!response.ok) throw new Error(body.error || '計算に失敗しました。');
     result=body; render();
-    text('progress','計算が完了しました。下の「整備計画の見通し」をご確認ください。');
+    text('progress','計算完了。予測結果とサマリを更新しました。');
   } catch(error) {
     text('error',error.message || '接続できません。ローカルサーバーを確認してください。');
     $('error').hidden=false; text('progress','');
-    if(result) $('stale').hidden=false;
+    invalidate();
   } finally {controls.forEach(control=>control.disabled=false);}
 });
 function render(){
   const r=result,p=r.plan;
   $('empty').hidden=true;$('results').hidden=false;$('stale').hidden=true;
+  exportButtons.forEach(id=>$(id).disabled=false);
   $('results').className=p.status;
   text('context',`観測終了 ${r.as_of} ・ ${r.observations}日分 ・ 予測${r.settings.horizon}日`);
   text('source',r.source);
@@ -46,12 +65,17 @@ function render(){
   text('status',{normal:'✓ 期間内未到達',attention:'△ 注意',overdue:'！期限超過'}[p.status]);
   text('status-note',p.message);
   text('explanation',`${r.model_label}を採用。${r.explanation}`);
+  text('summary-headline',r.summary.headline);
+  $('summary-items').replaceChildren();
+  r.summary.items.forEach(item=>{
+    const row=document.createElement('div'),label=document.createElement('dt'),value=document.createElement('dd');
+    label.textContent=item.label;value.textContent=item.value;row.append(label,value);$('summary-items').append(row);
+  });
   $('scenarios').replaceChildren();
-  r.scenarios.forEach(s=>{
-    const box=document.createElement('article');box.className='scenario';
-    const title=document.createElement('h3');title.textContent=s.label;box.append(title);
-    [['容量不足',s.plan.hit_date||'期間内未到達'],['着手期限',s.plan.deadline||'期間内は算出なし']].forEach(([k,v])=>{const p=document.createElement('p');p.textContent=k;const b=document.createElement('b');b.textContent=v;p.append(b);box.append(p);});
-    $('scenarios').append(box);
+  r.scenarios.forEach((s,i)=>{
+    const row=document.createElement('tr');if(i===1)row.className='chosen';
+    [`${num(s.multiplier*100,0)}%${i===1?'（基準）':i===2?'（指定）':''}`,s.plan.hit_date||'期間内未到達',s.plan.deadline||'算出不可'].forEach(value=>{const td=document.createElement('td');td.textContent=value;row.append(td);});
+    $('scenarios').append(row);
   });
   const e=r.evaluation, first=e.audit[0],last=e.audit.at(-1);
   text('evaluation-context',`${r.source}。監査の採点期間 ${first.test_start}〜${last.test_end}、予測起点 ${[...new Set(e.audit.map(x=>x.train_end))].join(' / ')}。各起点までの観測だけで再学習。`);
@@ -89,4 +113,5 @@ function drawChart(){
 window.addEventListener('resize',drawChart);
 function download(content,type,name){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 $('export-json').addEventListener('click',()=>download(JSON.stringify(result,null,2),'application/json',`capacity-result-${result.as_of}.json`));
+$('export-summary').addEventListener('click',()=>download('\uFEFF'+result.summary.text,'text/plain;charset=utf-8',`capacity-summary-${result.as_of}.txt`));
 $('export-csv').addEventListener('click',()=>{const rows=['date,predicted_gb,capacity_gb,hit_date,deadline,model'];result.forecast.forEach(r=>rows.push([r.date,r.used_gb,result.settings.capacity,result.plan.hit_date||'',result.plan.deadline||'',result.selected_model].join(',')));download('\uFEFF'+rows.join('\r\n'),'text/csv;charset=utf-8',`capacity-forecast-${result.as_of}.csv`);});
