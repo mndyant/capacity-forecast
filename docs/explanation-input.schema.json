@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "計算結果の説明入力（LLM未接続）",
+  "type": "object",
+  "required": ["as_of", "parameters", "plan", "settings", "evaluation", "limitations"],
+  "properties": {
+    "as_of": {"type": "string", "format": "date"},
+    "parameters": {"type": "object", "required": ["rate"], "properties": {"rate": {"type": "number", "minimum": 0}}},
+    "plan": {"type": "object", "required": ["hit_date", "deadline", "status"], "properties": {
+      "hit_date": {"type": ["string", "null"], "format": "date"},
+      "deadline": {"type": ["string", "null"], "format": "date"},
+      "status": {"enum": ["normal", "attention", "overdue"]}
+    }},
+    "settings": {"type": "object", "required": ["lead", "buffer"], "properties": {
+      "lead": {"type": "integer", "minimum": 0}, "buffer": {"type": "integer", "minimum": 0}
+    }},
+    "evaluation": {"type": "object"},
+    "limitations": {"type": "string"}
+  }
+}

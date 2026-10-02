@@ -1,0 +1,2530 @@
+{
+  "as_of": "2026-06-29",
+  "evaluation": {
+    "audit": [
+      {
+        "endpoint_abs_error": 1.5682221999999229,
+        "endpoint_error": 1.5682221999999229,
+        "fit_ms": 0.06509991362690926,
+        "growth_error": 1.5682221999999229,
+        "horizon": 7,
+        "mae": 0.762310971428568,
+        "model": "mean30",
+        "origin": 120,
+        "predict_ms": 0.38739992305636406,
+        "rmse": 0.8766840155675679,
+        "stage": "audit",
+        "test_end": "2026-05-07",
+        "test_start": "2026-05-01",
+        "train_end": "2026-04-30",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.12974399999996,
+        "endpoint_error": 4.12974399999996,
+        "fit_ms": 0.06509991362690926,
+        "growth_error": 4.12974399999996,
+        "horizon": 30,
+        "mae": 3.201476833333341,
+        "model": "mean30",
+        "origin": 120,
+        "predict_ms": 0.38739992305636406,
+        "rmse": 3.555831751153493,
+        "stage": "audit",
+        "test_end": "2026-05-30",
+        "test_start": "2026-05-01",
+        "train_end": "2026-04-30",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.6522798978852506,
+        "endpoint_error": 1.6522798978852506,
+        "fit_ms": 0.0801000278443098,
+        "growth_error": 1.6522798978852506,
+        "horizon": 7,
+        "mae": 0.810343941648739,
+        "model": "linear",
+        "origin": 120,
+        "predict_ms": 0.47239987179636955,
+        "rmse": 0.9293760850284399,
+        "stage": "audit",
+        "test_end": "2026-05-07",
+        "test_start": "2026-05-01",
+        "train_end": "2026-04-30",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.489991276651153,
+        "endpoint_error": 4.489991276651153,
+        "fit_ms": 0.0801000278443098,
+        "growth_error": 4.489991276651153,
+        "horizon": 30,
+        "mae": 3.38760459293646,
+        "model": "linear",
+        "origin": 120,
+        "predict_ms": 0.47239987179636955,
+        "rmse": 3.7645936899900656,
+        "stage": "audit",
+        "test_end": "2026-05-30",
+        "test_start": "2026-05-01",
+        "train_end": "2026-04-30",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.0552697714614396,
+        "endpoint_error": 1.0552697714614396,
+        "fit_ms": 0.0662999227643013,
+        "growth_error": 1.0552697714614396,
+        "horizon": 7,
+        "mae": 0.46919529797800613,
+        "model": "ses",
+        "origin": 120,
+        "predict_ms": 0.3370000049471855,
+        "rmse": 0.5593175748172253,
+        "stage": "audit",
+        "test_end": "2026-05-07",
+        "test_start": "2026-05-01",
+        "train_end": "2026-04-30",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.9313764491206484,
+        "endpoint_error": 1.9313764491206484,
+        "fit_ms": 0.0662999227643013,
+        "growth_error": 1.9313764491206484,
+        "horizon": 30,
+        "mae": 2.0656535987123488,
+        "model": "ses",
+        "origin": 120,
+        "predict_ms": 0.3370000049471855,
+        "rmse": 2.299527782944792,
+        "stage": "audit",
+        "test_end": "2026-05-30",
+        "test_start": "2026-05-01",
+        "train_end": "2026-04-30",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.5563740333333271,
+        "endpoint_error": 1.5563740333333271,
+        "fit_ms": 0.05550007335841656,
+        "growth_error": 1.5563740333333271,
+        "horizon": 7,
+        "mae": 0.971167447619093,
+        "model": "mean30",
+        "origin": 127,
+        "predict_ms": 0.4276998806744814,
+        "rmse": 1.0739024717208987,
+        "stage": "audit",
+        "test_end": "2026-05-14",
+        "test_start": "2026-05-08",
+        "train_end": "2026-05-07",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.9171790000000328,
+        "endpoint_error": -0.9171790000000328,
+        "fit_ms": 0.05550007335841656,
+        "growth_error": -0.9171790000000328,
+        "horizon": 30,
+        "mae": 1.2669174055555839,
+        "model": "mean30",
+        "origin": 127,
+        "predict_ms": 0.4276998806744814,
+        "rmse": 1.4091170585149289,
+        "stage": "audit",
+        "test_end": "2026-06-06",
+        "test_start": "2026-05-08",
+        "train_end": "2026-05-07",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 2.147471302370377,
+        "endpoint_error": 2.147471302370377,
+        "fit_ms": 0.21609989926218987,
+        "growth_error": 2.147471302370377,
+        "horizon": 7,
+        "mae": 1.3089373156402806,
+        "model": "linear",
+        "origin": 127,
+        "predict_ms": 0.824199989438057,
+        "rmse": 1.450963515504388,
+        "stage": "audit",
+        "test_end": "2026-05-14",
+        "test_start": "2026-05-08",
+        "train_end": "2026-05-07",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.616095010158915,
+        "endpoint_error": 1.616095010158915,
+        "fit_ms": 0.21609989926218987,
+        "growth_error": 1.616095010158915,
+        "horizon": 30,
+        "mae": 2.3583661552488024,
+        "model": "linear",
+        "origin": 127,
+        "predict_ms": 0.824199989438057,
+        "rmse": 2.501759352815359,
+        "stage": "audit",
+        "test_end": "2026-06-06",
+        "test_start": "2026-05-08",
+        "train_end": "2026-05-07",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.5360773002832957,
+        "endpoint_error": 0.5360773002832957,
+        "fit_ms": 0.08229981176555157,
+        "growth_error": 0.5360773002832957,
+        "horizon": 7,
+        "mae": 0.38814074301904256,
+        "model": "ses",
+        "origin": 127,
+        "predict_ms": 0.4252998623996973,
+        "rmse": 0.4254705216798523,
+        "stage": "audit",
+        "test_end": "2026-05-14",
+        "test_start": "2026-05-08",
+        "train_end": "2026-05-07",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 5.28987928450033,
+        "endpoint_error": -5.28987928450033,
+        "fit_ms": 0.08229981176555157,
+        "growth_error": -5.28987928450033,
+        "horizon": 30,
+        "mae": 1.5466702905706597,
+        "model": "ses",
+        "origin": 127,
+        "predict_ms": 0.4252998623996973,
+        "rmse": 2.2769363350321696,
+        "stage": "audit",
+        "test_end": "2026-06-06",
+        "test_start": "2026-05-08",
+        "train_end": "2026-05-07",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.36302089999992404,
+        "endpoint_error": -0.36302089999992404,
+        "fit_ms": 0.07580011151731014,
+        "growth_error": -0.36302089999992404,
+        "horizon": 7,
+        "mae": 0.11370531428566924,
+        "model": "mean30",
+        "origin": 134,
+        "predict_ms": 0.3090999089181423,
+        "rmse": 0.1570531299600413,
+        "stage": "audit",
+        "test_end": "2026-05-21",
+        "test_start": "2026-05-15",
+        "train_end": "2026-05-14",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 8.07966399999998,
+        "endpoint_error": -8.07966399999998,
+        "fit_ms": 0.07580011151731014,
+        "growth_error": -8.07966399999998,
+        "horizon": 30,
+        "mae": 3.005109869999944,
+        "model": "mean30",
+        "origin": 134,
+        "predict_ms": 0.3090999089181423,
+        "rmse": 4.000283256542052,
+        "stage": "audit",
+        "test_end": "2026-06-13",
+        "test_start": "2026-05-15",
+        "train_end": "2026-05-14",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.9604457191237543,
+        "endpoint_error": 0.9604457191237543,
+        "fit_ms": 0.10870001278817654,
+        "growth_error": 0.9604457191237543,
+        "horizon": 7,
+        "mae": 0.6825056966421569,
+        "model": "linear",
+        "origin": 134,
+        "predict_ms": 0.36649988032877445,
+        "rmse": 0.7436805927458418,
+        "stage": "audit",
+        "test_end": "2026-05-21",
+        "test_start": "2026-05-15",
+        "train_end": "2026-05-14",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 2.407664203755644,
+        "endpoint_error": -2.407664203755644,
+        "fit_ms": 0.10870001278817654,
+        "growth_error": -2.407664203755644,
+        "horizon": 30,
+        "mae": 0.9521470126635146,
+        "model": "linear",
+        "origin": 134,
+        "predict_ms": 0.36649988032877445,
+        "rmse": 1.1061393205585734,
+        "stage": "audit",
+        "test_end": "2026-06-13",
+        "test_start": "2026-05-15",
+        "train_end": "2026-05-14",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.9130966955666509,
+        "endpoint_error": -0.9130966955666509,
+        "fit_ms": 0.0809000339359045,
+        "growth_error": -0.9130966955666509,
+        "horizon": 7,
+        "mae": 0.40558226703537265,
+        "model": "ses",
+        "origin": 134,
+        "predict_ms": 0.3152999561280012,
+        "rmse": 0.4750753487093773,
+        "stage": "audit",
+        "test_end": "2026-05-21",
+        "test_start": "2026-05-15",
+        "train_end": "2026-05-14",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 10.437131695286212,
+        "endpoint_error": -10.437131695286212,
+        "fit_ms": 0.0809000339359045,
+        "growth_error": -10.437131695286212,
+        "horizon": 30,
+        "mae": 4.217896028797175,
+        "model": "ses",
+        "origin": 134,
+        "predict_ms": 0.3152999561280012,
+        "rmse": 5.364094787548773,
+        "stage": "audit",
+        "test_end": "2026-06-13",
+        "test_start": "2026-05-15",
+        "train_end": "2026-05-14",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.566226566666728,
+        "endpoint_error": -1.566226566666728,
+        "fit_ms": 0.08709984831511974,
+        "growth_error": -1.566226566666728,
+        "horizon": 7,
+        "mae": 0.7410554666667102,
+        "model": "mean30",
+        "origin": 141,
+        "predict_ms": 0.35920017398893833,
+        "rmse": 0.9340046195096564,
+        "stage": "audit",
+        "test_end": "2026-05-28",
+        "test_start": "2026-05-22",
+        "train_end": "2026-05-21",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 10.267184000000043,
+        "endpoint_error": -10.267184000000043,
+        "fit_ms": 0.08709984831511974,
+        "growth_error": -10.267184000000043,
+        "horizon": 30,
+        "mae": 4.896233883333396,
+        "model": "mean30",
+        "origin": 141,
+        "predict_ms": 0.35920017398893833,
+        "rmse": 5.876621560822349,
+        "stage": "audit",
+        "test_end": "2026-06-20",
+        "test_start": "2026-05-22",
+        "train_end": "2026-05-21",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.28363105477978934,
+        "endpoint_error": -0.28363105477978934,
+        "fit_ms": 0.10040006600320339,
+        "growth_error": -0.28363105477978934,
+        "horizon": 7,
+        "mae": 0.20989556890767094,
+        "model": "linear",
+        "origin": 141,
+        "predict_ms": 0.3838001284748316,
+        "rmse": 0.23033446371799876,
+        "stage": "audit",
+        "test_end": "2026-05-28",
+        "test_start": "2026-05-22",
+        "train_end": "2026-05-21",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.770346091913211,
+        "endpoint_error": -4.770346091913211,
+        "fit_ms": 0.10040006600320339,
+        "growth_error": -4.770346091913211,
+        "horizon": 30,
+        "mae": 2.1032763895963322,
+        "model": "linear",
+        "origin": 141,
+        "predict_ms": 0.3838001284748316,
+        "rmse": 2.649848098020579,
+        "stage": "audit",
+        "test_end": "2026-06-20",
+        "test_start": "2026-05-22",
+        "train_end": "2026-05-21",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.1966104838805904,
+        "endpoint_error": -1.1966104838805904,
+        "fit_ms": 0.1772001851350069,
+        "growth_error": -1.1966104838805904,
+        "horizon": 7,
+        "mae": 0.5379671138958396,
+        "model": "ses",
+        "origin": 141,
+        "predict_ms": 0.9458998683840036,
+        "rmse": 0.7060606806518845,
+        "stage": "audit",
+        "test_end": "2026-05-28",
+        "test_start": "2026-05-22",
+        "train_end": "2026-05-21",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 8.683115073773934,
+        "endpoint_error": -8.683115073773934,
+        "fit_ms": 0.1772001851350069,
+        "growth_error": -8.683115073773934,
+        "horizon": 30,
+        "mae": 4.079693133508185,
+        "model": "ses",
+        "origin": 141,
+        "predict_ms": 0.9458998683840036,
+        "rmse": 4.943233406049829,
+        "stage": "audit",
+        "test_end": "2026-06-20",
+        "test_start": "2026-05-22",
+        "train_end": "2026-05-21",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 2.2335983000000397,
+        "endpoint_error": -2.2335983000000397,
+        "fit_ms": 0.06180000491440296,
+        "growth_error": -2.2335983000000397,
+        "horizon": 7,
+        "mae": 1.2982121714286126,
+        "model": "mean30",
+        "origin": 148,
+        "predict_ms": 0.38759992457926273,
+        "rmse": 1.5072361672120915,
+        "stage": "audit",
+        "test_end": "2026-06-04",
+        "test_start": "2026-05-29",
+        "train_end": "2026-05-28",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 9.751651000000038,
+        "endpoint_error": -9.751651000000038,
+        "fit_ms": 0.06180000491440296,
+        "growth_error": -9.751651000000038,
+        "horizon": 30,
+        "mae": 5.205392350000053,
+        "model": "mean30",
+        "origin": 148,
+        "predict_ms": 0.38759992457926273,
+        "rmse": 5.968013615715478,
+        "stage": "audit",
+        "test_end": "2026-06-27",
+        "test_start": "2026-05-29",
+        "train_end": "2026-05-28",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.3092693885491826,
+        "endpoint_error": -1.3092693885491826,
+        "fit_ms": 0.0849999487400055,
+        "growth_error": -1.3092693885491826,
+        "horizon": 7,
+        "mae": 0.7700242220281227,
+        "model": "linear",
+        "origin": 148,
+        "predict_ms": 0.5097000394016504,
+        "rmse": 0.923696879011226,
+        "stage": "audit",
+        "test_end": "2026-06-04",
+        "test_start": "2026-05-29",
+        "train_end": "2026-05-28",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 5.790241379496365,
+        "endpoint_error": -5.790241379496365,
+        "fit_ms": 0.0849999487400055,
+        "growth_error": -5.790241379496365,
+        "horizon": 30,
+        "mae": 3.158664046073151,
+        "model": "linear",
+        "origin": 148,
+        "predict_ms": 0.5097000394016504,
+        "rmse": 3.626281831831643,
+        "stage": "audit",
+        "test_end": "2026-06-27",
+        "test_start": "2026-05-29",
+        "train_end": "2026-05-28",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.083607644977974,
+        "endpoint_error": -1.083607644977974,
+        "fit_ms": 0.09829993359744549,
+        "growth_error": -1.083607644977974,
+        "horizon": 7,
+        "mae": 0.6410746542731464,
+        "model": "ses",
+        "origin": 148,
+        "predict_ms": 0.3983001224696636,
+        "rmse": 0.782828443780673,
+        "stage": "audit",
+        "test_end": "2026-06-04",
+        "test_start": "2026-05-29",
+        "train_end": "2026-05-28",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.8231196213339445,
+        "endpoint_error": -4.8231196213339445,
+        "fit_ms": 0.09829993359744549,
+        "growth_error": -4.8231196213339445,
+        "horizon": 30,
+        "mae": 2.6589844710225634,
+        "model": "ses",
+        "origin": 148,
+        "predict_ms": 0.3983001224696636,
+        "rmse": 3.0551613415627936,
+        "stage": "audit",
+        "test_end": "2026-06-27",
+        "test_start": "2026-05-29",
+        "train_end": "2026-05-28",
+        "train_start": "2026-01-01"
+      }
+    ],
+    "development": [
+      {
+        "endpoint_abs_error": 0.8088219333334337,
+        "endpoint_error": 0.8088219333334337,
+        "fit_ms": 0.2714002039283514,
+        "growth_error": 0.8088219333334337,
+        "horizon": 7,
+        "mae": 0.5540449619048461,
+        "model": "mean30",
+        "origin": 60,
+        "predict_ms": 1.5598000027239323,
+        "rmse": 0.625612507072855,
+        "stage": "development",
+        "test_end": "2026-03-08",
+        "test_start": "2026-03-02",
+        "train_end": "2026-03-01",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.666760999999951,
+        "endpoint_error": -4.666760999999951,
+        "fit_ms": 0.2714002039283514,
+        "growth_error": -4.666760999999951,
+        "horizon": 30,
+        "mae": 1.3544174355555583,
+        "model": "mean30",
+        "origin": 60,
+        "predict_ms": 1.5598000027239323,
+        "rmse": 2.0659226943485436,
+        "stage": "development",
+        "test_end": "2026-03-31",
+        "test_start": "2026-03-02",
+        "train_end": "2026-03-01",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.7577847701306837,
+        "endpoint_error": 1.7577847701306837,
+        "fit_ms": 0.17650006338953972,
+        "growth_error": 1.7577847701306837,
+        "horizon": 7,
+        "mae": 1.0963094400747033,
+        "model": "linear",
+        "origin": 60,
+        "predict_ms": 0.6917999126017094,
+        "rmse": 1.227326553321759,
+        "stage": "development",
+        "test_end": "2026-03-08",
+        "test_start": "2026-03-02",
+        "train_end": "2026-03-01",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.5997774137260876,
+        "endpoint_error": -0.5997774137260876,
+        "fit_ms": 0.17650006338953972,
+        "growth_error": -0.5997774137260876,
+        "horizon": 30,
+        "mae": 1.2419164046078057,
+        "model": "linear",
+        "origin": 60,
+        "predict_ms": 0.6917999126017094,
+        "rmse": 1.421132842642135,
+        "stage": "development",
+        "test_end": "2026-03-31",
+        "test_start": "2026-03-02",
+        "train_end": "2026-03-01",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.8749106913541027,
+        "endpoint_error": 0.8749106913541027,
+        "fit_ms": 0.09809993207454681,
+        "growth_error": 0.8749106913541027,
+        "horizon": 7,
+        "mae": 0.5918099664880856,
+        "model": "ses",
+        "origin": 60,
+        "predict_ms": 0.512199942022562,
+        "rmse": 0.6672506051983988,
+        "stage": "development",
+        "test_end": "2026-03-08",
+        "test_start": "2026-03-02",
+        "train_end": "2026-03-01",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.383523465625558,
+        "endpoint_error": -4.383523465625558,
+        "fit_ms": 0.09809993207454681,
+        "growth_error": -4.383523465625558,
+        "horizon": 30,
+        "mae": 1.288983159850837,
+        "model": "ses",
+        "origin": 60,
+        "predict_ms": 0.512199942022562,
+        "rmse": 1.9329140162729688,
+        "stage": "development",
+        "test_end": "2026-03-31",
+        "test_start": "2026-03-02",
+        "train_end": "2026-03-01",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.3855697666667766,
+        "endpoint_error": -1.3855697666667766,
+        "fit_ms": 0.06270012818276882,
+        "growth_error": -1.3855697666667766,
+        "horizon": 7,
+        "mae": 1.0518490095238349,
+        "model": "mean30",
+        "origin": 67,
+        "predict_ms": 0.35550002939999104,
+        "rmse": 1.0870158860632526,
+        "stage": "development",
+        "test_end": "2026-03-15",
+        "test_start": "2026-03-09",
+        "train_end": "2026-03-08",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 9.765411000000086,
+        "endpoint_error": -9.765411000000086,
+        "fit_ms": 0.06270012818276882,
+        "growth_error": -9.765411000000086,
+        "horizon": 30,
+        "mae": 4.762103716666706,
+        "model": "mean30",
+        "origin": 67,
+        "predict_ms": 0.35550002939999104,
+        "rmse": 5.7166096395846395,
+        "stage": "development",
+        "test_end": "2026-04-07",
+        "test_start": "2026-03-09",
+        "train_end": "2026-03-08",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.030905452310548753,
+        "endpoint_error": 0.030905452310548753,
+        "fit_ms": 0.07979990914463997,
+        "growth_error": 0.030905452310548753,
+        "horizon": 7,
+        "mae": 0.2512647279112506,
+        "model": "linear",
+        "origin": 67,
+        "predict_ms": 0.3214001189917326,
+        "rmse": 0.30060408160566904,
+        "stage": "development",
+        "test_end": "2026-03-15",
+        "test_start": "2026-03-09",
+        "train_end": "2026-03-08",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 3.6948029186687563,
+        "endpoint_error": -3.6948029186687563,
+        "fit_ms": 0.07979990914463997,
+        "growth_error": -3.6948029186687563,
+        "horizon": 30,
+        "mae": 1.6508894254157211,
+        "model": "linear",
+        "origin": 67,
+        "predict_ms": 0.3214001189917326,
+        "rmse": 2.192501796821001,
+        "stage": "development",
+        "test_end": "2026-04-07",
+        "test_start": "2026-03-09",
+        "train_end": "2026-03-08",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.1861511481838534,
+        "endpoint_error": -1.1861511481838534,
+        "fit_ms": 0.05829986184835434,
+        "growth_error": -1.1861511481838534,
+        "horizon": 7,
+        "mae": 0.937895513247895,
+        "model": "ses",
+        "origin": 67,
+        "predict_ms": 0.3926998469978571,
+        "rmse": 0.9637999474727403,
+        "stage": "development",
+        "test_end": "2026-03-15",
+        "test_start": "2026-03-09",
+        "train_end": "2026-03-08",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 8.910759777930593,
+        "endpoint_error": -8.910759777930593,
+        "fit_ms": 0.05829986184835434,
+        "growth_error": -8.910759777930593,
+        "horizon": 30,
+        "mae": 4.320533918597463,
+        "model": "ses",
+        "origin": 67,
+        "predict_ms": 0.3926998469978571,
+        "rmse": 5.214836550225542,
+        "stage": "development",
+        "test_end": "2026-04-07",
+        "test_start": "2026-03-09",
+        "train_end": "2026-03-08",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 2.011617066666531,
+        "endpoint_error": -2.011617066666531,
+        "fit_ms": 0.11070002801716328,
+        "growth_error": -2.011617066666531,
+        "horizon": 7,
+        "mae": 0.7790210380951846,
+        "model": "mean30",
+        "origin": 74,
+        "predict_ms": 0.47930004075169563,
+        "rmse": 0.9894238375184032,
+        "stage": "development",
+        "test_end": "2026-03-22",
+        "test_start": "2026-03-16",
+        "train_end": "2026-03-15",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 9.651202999999896,
+        "endpoint_error": -9.651202999999896,
+        "fit_ms": 0.11070002801716328,
+        "growth_error": -9.651202999999896,
+        "horizon": 30,
+        "mae": 5.138363299999924,
+        "model": "mean30",
+        "origin": 74,
+        "predict_ms": 0.47930004075169563,
+        "rmse": 5.97416579354948,
+        "stage": "development",
+        "test_end": "2026-04-14",
+        "test_start": "2026-03-16",
+        "train_end": "2026-03-15",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.0391392654571519,
+        "endpoint_error": -1.0391392654571519,
+        "fit_ms": 0.07890001870691776,
+        "growth_error": -1.0391392654571519,
+        "horizon": 7,
+        "mae": 0.263808180409358,
+        "model": "linear",
+        "origin": 74,
+        "predict_ms": 0.3899000585079193,
+        "rmse": 0.4221786252207222,
+        "stage": "development",
+        "test_end": "2026-03-22",
+        "test_start": "2026-03-16",
+        "train_end": "2026-03-15",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 5.483440994816647,
+        "endpoint_error": -5.483440994816647,
+        "fit_ms": 0.07890001870691776,
+        "growth_error": -5.483440994816647,
+        "horizon": 30,
+        "mae": 2.994466970689814,
+        "model": "linear",
+        "origin": 74,
+        "predict_ms": 0.3899000585079193,
+        "rmse": 3.519095131361707,
+        "stage": "development",
+        "test_end": "2026-04-14",
+        "test_start": "2026-03-16",
+        "train_end": "2026-03-15",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.4567836068458746,
+        "endpoint_error": -1.4567836068458746,
+        "fit_ms": 0.14939997345209122,
+        "growth_error": -1.4567836068458746,
+        "horizon": 7,
+        "mae": 0.4742667913875981,
+        "model": "ses",
+        "origin": 74,
+        "predict_ms": 0.7503998931497335,
+        "rmse": 0.6538627632389195,
+        "stage": "development",
+        "test_end": "2026-03-22",
+        "test_start": "2026-03-16",
+        "train_end": "2026-03-15",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 7.2733453150538026,
+        "endpoint_error": -7.2733453150538026,
+        "fit_ms": 0.14939997345209122,
+        "growth_error": -7.2733453150538026,
+        "horizon": 30,
+        "mae": 3.9126719665221157,
+        "model": "ses",
+        "origin": 74,
+        "predict_ms": 0.7503998931497335,
+        "rmse": 4.571974889304977,
+        "stage": "development",
+        "test_end": "2026-04-14",
+        "test_start": "2026-03-16",
+        "train_end": "2026-03-15",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 2.267394000000081,
+        "endpoint_error": -2.267394000000081,
+        "fit_ms": 0.07569999434053898,
+        "growth_error": -2.267394000000081,
+        "horizon": 7,
+        "mae": 1.6412222857143206,
+        "model": "mean30",
+        "origin": 81,
+        "predict_ms": 0.5205997731536627,
+        "rmse": 1.8042235959044604,
+        "stage": "development",
+        "test_end": "2026-03-29",
+        "test_start": "2026-03-23",
+        "train_end": "2026-03-22",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 5.102332000000047,
+        "endpoint_error": -5.102332000000047,
+        "fit_ms": 0.07569999434053898,
+        "growth_error": -5.102332000000047,
+        "horizon": 30,
+        "mae": 3.8113856000000585,
+        "model": "mean30",
+        "origin": 81,
+        "predict_ms": 0.5205997731536627,
+        "rmse": 4.1171021742669245,
+        "stage": "development",
+        "test_end": "2026-04-21",
+        "test_start": "2026-03-23",
+        "train_end": "2026-03-22",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.9981426048103685,
+        "endpoint_error": -1.9981426048103685,
+        "fit_ms": 0.09489990770816803,
+        "growth_error": -1.9981426048103685,
+        "horizon": 7,
+        "mae": 1.4873643456059134,
+        "model": "linear",
+        "origin": 81,
+        "predict_ms": 0.5135000683367252,
+        "rmse": 1.6349387822401957,
+        "stage": "development",
+        "test_end": "2026-03-29",
+        "test_start": "2026-03-23",
+        "train_end": "2026-03-22",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 3.9483974491869276,
+        "endpoint_error": -3.9483974491869276,
+        "fit_ms": 0.09489990770816803,
+        "growth_error": -3.9483974491869276,
+        "horizon": 30,
+        "mae": 3.2151860820799736,
+        "model": "linear",
+        "origin": 81,
+        "predict_ms": 0.5135000683367252,
+        "rmse": 3.4510058281721663,
+        "stage": "development",
+        "test_end": "2026-04-21",
+        "test_start": "2026-03-23",
+        "train_end": "2026-03-22",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.6985263240649147,
+        "endpoint_error": -0.6985263240649147,
+        "fit_ms": 0.06930017843842506,
+        "growth_error": -0.6985263240649147,
+        "horizon": 7,
+        "mae": 0.7488681719528033,
+        "model": "ses",
+        "origin": 81,
+        "predict_ms": 0.44679990969598293,
+        "rmse": 0.8337266449349433,
+        "stage": "development",
+        "test_end": "2026-03-29",
+        "test_start": "2026-03-23",
+        "train_end": "2026-03-22",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.6213866111506832,
+        "endpoint_error": 1.6213866111506832,
+        "fit_ms": 0.06930017843842506,
+        "growth_error": 1.6213866111506832,
+        "horizon": 30,
+        "mae": 0.7218618052410875,
+        "model": "ses",
+        "origin": 81,
+        "predict_ms": 0.44679990969598293,
+        "rmse": 0.8315935055328268,
+        "stage": "development",
+        "test_end": "2026-04-21",
+        "test_start": "2026-03-23",
+        "train_end": "2026-03-22",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.8929530333332423,
+        "endpoint_error": -0.8929530333332423,
+        "fit_ms": 0.16189995221793652,
+        "growth_error": -0.8929530333332423,
+        "horizon": 7,
+        "mae": 0.4757467333332995,
+        "model": "mean30",
+        "origin": 88,
+        "predict_ms": 0.7034000009298325,
+        "rmse": 0.5564444730913481,
+        "stage": "development",
+        "test_end": "2026-04-05",
+        "test_start": "2026-03-30",
+        "train_end": "2026-03-29",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.023061000000098,
+        "endpoint_error": 1.023061000000098,
+        "fit_ms": 0.16189995221793652,
+        "growth_error": 1.023061000000098,
+        "horizon": 30,
+        "mae": 0.8577836833333057,
+        "model": "mean30",
+        "origin": 88,
+        "predict_ms": 0.7034000009298325,
+        "rmse": 1.029044688080809,
+        "stage": "development",
+        "test_end": "2026-04-28",
+        "test_start": "2026-03-30",
+        "train_end": "2026-03-29",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 1.3254565157531033,
+        "endpoint_error": -1.3254565157531033,
+        "fit_ms": 0.16780011355876923,
+        "growth_error": -1.3254565157531033,
+        "horizon": 7,
+        "mae": 0.7228915804303792,
+        "model": "linear",
+        "origin": 88,
+        "predict_ms": 0.8543001022189856,
+        "rmse": 0.8294888579269538,
+        "stage": "development",
+        "test_end": "2026-04-05",
+        "test_start": "2026-03-30",
+        "train_end": "2026-03-29",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.8305253532280403,
+        "endpoint_error": -0.8305253532280403,
+        "fit_ms": 0.16780011355876923,
+        "growth_error": -0.8305253532280403,
+        "horizon": 30,
+        "mae": 1.53976299916784,
+        "model": "linear",
+        "origin": 88,
+        "predict_ms": 0.8543001022189856,
+        "rmse": 1.7258504084775155,
+        "stage": "development",
+        "test_end": "2026-04-28",
+        "test_start": "2026-03-30",
+        "train_end": "2026-03-29",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 0.013998755373222593,
+        "endpoint_error": 0.013998755373222593,
+        "fit_ms": 0.0950000248849392,
+        "growth_error": 0.013998755373222593,
+        "horizon": 7,
+        "mae": 0.09372775641796645,
+        "model": "ses",
+        "origin": 88,
+        "predict_ms": 0.5357998888939619,
+        "rmse": 0.10924018982692908,
+        "stage": "development",
+        "test_end": "2026-04-05",
+        "test_start": "2026-03-30",
+        "train_end": "2026-03-29",
+        "train_start": "2026-01-01"
+      },
+      {
+        "endpoint_abs_error": 4.909997237313519,
+        "endpoint_error": 4.909997237313519,
+        "fit_ms": 0.0950000248849392,
+        "growth_error": 4.909997237313519,
+        "horizon": 30,
+        "mae": 1.4917251344925755,
+        "model": "ses",
+        "origin": 88,
+        "predict_ms": 0.5357998888939619,
+        "rmse": 2.201637872350886,
+        "stage": "development",
+        "test_end": "2026-04-28",
+        "test_start": "2026-03-30",
+        "train_end": "2026-03-29",
+        "train_start": "2026-01-01"
+      }
+    ],
+    "fallback": false,
+    "selected": "linear",
+    "selection_rule": "開発foldの30日間MAE。最小値×1.05＋0.01GB以内を同程度とし mean30,linear,ses の順を優先。",
+    "selection_scores": {
+      "linear": 2.1284443763922307,
+      "mean30": 3.1848107471111105,
+      "ses": 2.3471551969408155
+    },
+    "summary": [
+      {
+        "endpoint_abs_error": 1.4574883999999884,
+        "folds": 5,
+        "growth_abs_error": 1.4574883999999884,
+        "horizon": 7,
+        "improvement_pct": 0,
+        "mae": 0.7772902742857306,
+        "model": "mean30",
+        "rmse": 1.009022552827017
+      },
+      {
+        "endpoint_abs_error": 1.2706194725416708,
+        "folds": 5,
+        "growth_abs_error": 1.2706194725416708,
+        "horizon": 7,
+        "improvement_pct": 2.6951225308443516,
+        "mae": 0.756341348973394,
+        "model": "linear",
+        "rmse": 0.9411020926813187
+      },
+      {
+        "endpoint_abs_error": 0.9569323792339901,
+        "folds": 5,
+        "growth_abs_error": 0.9569323792339901,
+        "horizon": 7,
+        "improvement_pct": 37.16735801318551,
+        "mae": 0.4883920152402815,
+        "model": "ses",
+        "rmse": 0.6051280787443196
+      },
+      {
+        "endpoint_abs_error": 6.629084400000011,
+        "folds": 5,
+        "growth_abs_error": 6.629084400000011,
+        "horizon": 30,
+        "improvement_pct": 0,
+        "mae": 3.515026068444464,
+        "model": "mean30",
+        "rmse": 4.489625462021687
+      },
+      {
+        "endpoint_abs_error": 3.814867592395058,
+        "folds": 5,
+        "growth_abs_error": 3.814867592395058,
+        "horizon": 30,
+        "improvement_pct": 31.948964453563487,
+        "mae": 2.392011639303652,
+        "model": "linear",
+        "rmse": 2.8922698550810733
+      },
+      {
+        "endpoint_abs_error": 6.232924424803014,
+        "folds": 5,
+        "growth_abs_error": 6.232924424803014,
+        "horizon": 30,
+        "improvement_pct": 17.1050385463671,
+        "mae": 2.9137795045221866,
+        "model": "ses",
+        "rmse": 3.8213962714641196
+      }
+    ]
+  },
+  "explanation": "観測終了日 2026-06-29 を基準に、1日あたり 2.98 GBの増加を積み上げました。容量不足の見込み：2026-09-24。着手期限：2026-08-18。上限到達日から整備期間 30 日と安全余裕 7 日を引いています。削除や大幅な運用変更がない前提です。条件別シナリオは確率付きの予測区間ではありません。",
+  "forecast": [
+    {
+      "date": "2026-06-30",
+      "used_gb": 943.7532146294052
+    },
+    {
+      "date": "2026-07-01",
+      "used_gb": 946.7348222588105
+    },
+    {
+      "date": "2026-07-02",
+      "used_gb": 949.7164298882157
+    },
+    {
+      "date": "2026-07-03",
+      "used_gb": 952.698037517621
+    },
+    {
+      "date": "2026-07-04",
+      "used_gb": 955.6796451470261
+    },
+    {
+      "date": "2026-07-05",
+      "used_gb": 958.6612527764314
+    },
+    {
+      "date": "2026-07-06",
+      "used_gb": 961.6428604058366
+    },
+    {
+      "date": "2026-07-07",
+      "used_gb": 964.6244680352419
+    },
+    {
+      "date": "2026-07-08",
+      "used_gb": 967.606075664647
+    },
+    {
+      "date": "2026-07-09",
+      "used_gb": 970.5876832940523
+    },
+    {
+      "date": "2026-07-10",
+      "used_gb": 973.5692909234575
+    },
+    {
+      "date": "2026-07-11",
+      "used_gb": 976.5508985528628
+    },
+    {
+      "date": "2026-07-12",
+      "used_gb": 979.532506182268
+    },
+    {
+      "date": "2026-07-13",
+      "used_gb": 982.5141138116733
+    },
+    {
+      "date": "2026-07-14",
+      "used_gb": 985.4957214410784
+    },
+    {
+      "date": "2026-07-15",
+      "used_gb": 988.4773290704836
+    },
+    {
+      "date": "2026-07-16",
+      "used_gb": 991.4589366998889
+    },
+    {
+      "date": "2026-07-17",
+      "used_gb": 994.4405443292941
+    },
+    {
+      "date": "2026-07-18",
+      "used_gb": 997.4221519586994
+    },
+    {
+      "date": "2026-07-19",
+      "used_gb": 1000.4037595881045
+    },
+    {
+      "date": "2026-07-20",
+      "used_gb": 1003.3853672175098
+    },
+    {
+      "date": "2026-07-21",
+      "used_gb": 1006.366974846915
+    },
+    {
+      "date": "2026-07-22",
+      "used_gb": 1009.3485824763203
+    },
+    {
+      "date": "2026-07-23",
+      "used_gb": 1012.3301901057255
+    },
+    {
+      "date": "2026-07-24",
+      "used_gb": 1015.3117977351308
+    },
+    {
+      "date": "2026-07-25",
+      "used_gb": 1018.2934053645359
+    },
+    {
+      "date": "2026-07-26",
+      "used_gb": 1021.2750129939412
+    },
+    {
+      "date": "2026-07-27",
+      "used_gb": 1024.2566206233464
+    },
+    {
+      "date": "2026-07-28",
+      "used_gb": 1027.2382282527517
+    },
+    {
+      "date": "2026-07-29",
+      "used_gb": 1030.219835882157
+    },
+    {
+      "date": "2026-07-30",
+      "used_gb": 1033.201443511562
+    },
+    {
+      "date": "2026-07-31",
+      "used_gb": 1036.1830511409673
+    },
+    {
+      "date": "2026-08-01",
+      "used_gb": 1039.1646587703726
+    },
+    {
+      "date": "2026-08-02",
+      "used_gb": 1042.1462663997777
+    },
+    {
+      "date": "2026-08-03",
+      "used_gb": 1045.127874029183
+    },
+    {
+      "date": "2026-08-04",
+      "used_gb": 1048.1094816585883
+    },
+    {
+      "date": "2026-08-05",
+      "used_gb": 1051.0910892879936
+    },
+    {
+      "date": "2026-08-06",
+      "used_gb": 1054.0726969173986
+    },
+    {
+      "date": "2026-08-07",
+      "used_gb": 1057.054304546804
+    },
+    {
+      "date": "2026-08-08",
+      "used_gb": 1060.0359121762092
+    },
+    {
+      "date": "2026-08-09",
+      "used_gb": 1063.0175198056145
+    },
+    {
+      "date": "2026-08-10",
+      "used_gb": 1065.9991274350195
+    },
+    {
+      "date": "2026-08-11",
+      "used_gb": 1068.9807350644248
+    },
+    {
+      "date": "2026-08-12",
+      "used_gb": 1071.9623426938301
+    },
+    {
+      "date": "2026-08-13",
+      "used_gb": 1074.9439503232352
+    },
+    {
+      "date": "2026-08-14",
+      "used_gb": 1077.9255579526405
+    },
+    {
+      "date": "2026-08-15",
+      "used_gb": 1080.9071655820458
+    },
+    {
+      "date": "2026-08-16",
+      "used_gb": 1083.888773211451
+    },
+    {
+      "date": "2026-08-17",
+      "used_gb": 1086.8703808408563
+    },
+    {
+      "date": "2026-08-18",
+      "used_gb": 1089.8519884702614
+    },
+    {
+      "date": "2026-08-19",
+      "used_gb": 1092.8335960996667
+    },
+    {
+      "date": "2026-08-20",
+      "used_gb": 1095.815203729072
+    },
+    {
+      "date": "2026-08-21",
+      "used_gb": 1098.796811358477
+    },
+    {
+      "date": "2026-08-22",
+      "used_gb": 1101.7784189878823
+    },
+    {
+      "date": "2026-08-23",
+      "used_gb": 1104.7600266172876
+    },
+    {
+      "date": "2026-08-24",
+      "used_gb": 1107.741634246693
+    },
+    {
+      "date": "2026-08-25",
+      "used_gb": 1110.723241876098
+    },
+    {
+      "date": "2026-08-26",
+      "used_gb": 1113.7048495055033
+    },
+    {
+      "date": "2026-08-27",
+      "used_gb": 1116.6864571349086
+    },
+    {
+      "date": "2026-08-28",
+      "used_gb": 1119.6680647643138
+    },
+    {
+      "date": "2026-08-29",
+      "used_gb": 1122.649672393719
+    },
+    {
+      "date": "2026-08-30",
+      "used_gb": 1125.6312800231242
+    },
+    {
+      "date": "2026-08-31",
+      "used_gb": 1128.6128876525295
+    },
+    {
+      "date": "2026-09-01",
+      "used_gb": 1131.5944952819345
+    },
+    {
+      "date": "2026-09-02",
+      "used_gb": 1134.5761029113398
+    },
+    {
+      "date": "2026-09-03",
+      "used_gb": 1137.5577105407451
+    },
+    {
+      "date": "2026-09-04",
+      "used_gb": 1140.5393181701504
+    },
+    {
+      "date": "2026-09-05",
+      "used_gb": 1143.5209257995557
+    },
+    {
+      "date": "2026-09-06",
+      "used_gb": 1146.5025334289608
+    },
+    {
+      "date": "2026-09-07",
+      "used_gb": 1149.484141058366
+    },
+    {
+      "date": "2026-09-08",
+      "used_gb": 1152.4657486877713
+    },
+    {
+      "date": "2026-09-09",
+      "used_gb": 1155.4473563171764
+    },
+    {
+      "date": "2026-09-10",
+      "used_gb": 1158.4289639465817
+    },
+    {
+      "date": "2026-09-11",
+      "used_gb": 1161.410571575987
+    },
+    {
+      "date": "2026-09-12",
+      "used_gb": 1164.3921792053923
+    },
+    {
+      "date": "2026-09-13",
+      "used_gb": 1167.3737868347973
+    },
+    {
+      "date": "2026-09-14",
+      "used_gb": 1170.3553944642026
+    },
+    {
+      "date": "2026-09-15",
+      "used_gb": 1173.337002093608
+    },
+    {
+      "date": "2026-09-16",
+      "used_gb": 1176.3186097230132
+    },
+    {
+      "date": "2026-09-17",
+      "used_gb": 1179.3002173524183
+    },
+    {
+      "date": "2026-09-18",
+      "used_gb": 1182.2818249818235
+    },
+    {
+      "date": "2026-09-19",
+      "used_gb": 1185.2634326112288
+    },
+    {
+      "date": "2026-09-20",
+      "used_gb": 1188.245040240634
+    },
+    {
+      "date": "2026-09-21",
+      "used_gb": 1191.2266478700392
+    },
+    {
+      "date": "2026-09-22",
+      "used_gb": 1194.2082554994445
+    },
+    {
+      "date": "2026-09-23",
+      "used_gb": 1197.1898631288498
+    },
+    {
+      "date": "2026-09-24",
+      "used_gb": 1200.171470758255
+    },
+    {
+      "date": "2026-09-25",
+      "used_gb": 1203.1530783876601
+    },
+    {
+      "date": "2026-09-26",
+      "used_gb": 1206.1346860170654
+    },
+    {
+      "date": "2026-09-27",
+      "used_gb": 1209.1162936464707
+    }
+  ],
+  "history": [
+    {
+      "date": "2026-01-01",
+      "used_gb": 402.971004
+    },
+    {
+      "date": "2026-01-02",
+      "used_gb": 406.100758
+    },
+    {
+      "date": "2026-01-03",
+      "used_gb": 408.973534
+    },
+    {
+      "date": "2026-01-04",
+      "used_gb": 412.374001
+    },
+    {
+      "date": "2026-01-05",
+      "used_gb": 415.254951
+    },
+    {
+      "date": "2026-01-06",
+      "used_gb": 418.165061
+    },
+    {
+      "date": "2026-01-07",
+      "used_gb": 420.937445
+    },
+    {
+      "date": "2026-01-08",
+      "used_gb": 423.797326
+    },
+    {
+      "date": "2026-01-09",
+      "used_gb": 426.765468
+    },
+    {
+      "date": "2026-01-10",
+      "used_gb": 429.956347
+    },
+    {
+      "date": "2026-01-11",
+      "used_gb": 433.027717
+    },
+    {
+      "date": "2026-01-12",
+      "used_gb": 436.011728
+    },
+    {
+      "date": "2026-01-13",
+      "used_gb": 439.386237
+    },
+    {
+      "date": "2026-01-14",
+      "used_gb": 442.375172
+    },
+    {
+      "date": "2026-01-15",
+      "used_gb": 445.416348
+    },
+    {
+      "date": "2026-01-16",
+      "used_gb": 448.379936
+    },
+    {
+      "date": "2026-01-17",
+      "used_gb": 451.485738
+    },
+    {
+      "date": "2026-01-18",
+      "used_gb": 454.678575
+    },
+    {
+      "date": "2026-01-19",
+      "used_gb": 457.69563
+    },
+    {
+      "date": "2026-01-20",
+      "used_gb": 461.050244
+    },
+    {
+      "date": "2026-01-21",
+      "used_gb": 463.983821
+    },
+    {
+      "date": "2026-01-22",
+      "used_gb": 467.536121
+    },
+    {
+      "date": "2026-01-23",
+      "used_gb": 470.723566
+    },
+    {
+      "date": "2026-01-24",
+      "used_gb": 474.307755
+    },
+    {
+      "date": "2026-01-25",
+      "used_gb": 478.03897
+    },
+    {
+      "date": "2026-01-26",
+      "used_gb": 481.221776
+    },
+    {
+      "date": "2026-01-27",
+      "used_gb": 484.302803
+    },
+    {
+      "date": "2026-01-28",
+      "used_gb": 487.166339
+    },
+    {
+      "date": "2026-01-29",
+      "used_gb": 490.32859
+    },
+    {
+      "date": "2026-01-30",
+      "used_gb": 493.172993
+    },
+    {
+      "date": "2026-01-31",
+      "used_gb": 496.107266
+    },
+    {
+      "date": "2026-02-01",
+      "used_gb": 499.708359
+    },
+    {
+      "date": "2026-02-02",
+      "used_gb": 502.776922
+    },
+    {
+      "date": "2026-02-03",
+      "used_gb": 506.270755
+    },
+    {
+      "date": "2026-02-04",
+      "used_gb": 509.390319
+    },
+    {
+      "date": "2026-02-05",
+      "used_gb": 512.335856
+    },
+    {
+      "date": "2026-02-06",
+      "used_gb": 515.542066
+    },
+    {
+      "date": "2026-02-07",
+      "used_gb": 518.314308
+    },
+    {
+      "date": "2026-02-08",
+      "used_gb": 521.205624
+    },
+    {
+      "date": "2026-02-09",
+      "used_gb": 524.113394
+    },
+    {
+      "date": "2026-02-10",
+      "used_gb": 526.882839
+    },
+    {
+      "date": "2026-02-11",
+      "used_gb": 529.51005
+    },
+    {
+      "date": "2026-02-12",
+      "used_gb": 532.478476
+    },
+    {
+      "date": "2026-02-13",
+      "used_gb": 535.141851
+    },
+    {
+      "date": "2026-02-14",
+      "used_gb": 537.871928
+    },
+    {
+      "date": "2026-02-15",
+      "used_gb": 540.563734
+    },
+    {
+      "date": "2026-02-16",
+      "used_gb": 543.393047
+    },
+    {
+      "date": "2026-02-17",
+      "used_gb": 546.191644
+    },
+    {
+      "date": "2026-02-18",
+      "used_gb": 548.735158
+    },
+    {
+      "date": "2026-02-19",
+      "used_gb": 551.612382
+    },
+    {
+      "date": "2026-02-20",
+      "used_gb": 554.321263
+    },
+    {
+      "date": "2026-02-21",
+      "used_gb": 557.308551
+    },
+    {
+      "date": "2026-02-22",
+      "used_gb": 559.916981
+    },
+    {
+      "date": "2026-02-23",
+      "used_gb": 562.389557
+    },
+    {
+      "date": "2026-02-24",
+      "used_gb": 565.02242
+    },
+    {
+      "date": "2026-02-25",
+      "used_gb": 567.755531
+    },
+    {
+      "date": "2026-02-26",
+      "used_gb": 570.697974
+    },
+    {
+      "date": "2026-02-27",
+      "used_gb": 573.914501
+    },
+    {
+      "date": "2026-02-28",
+      "used_gb": 576.921914
+    },
+    {
+      "date": "2026-03-01",
+      "used_gb": 579.921087
+    },
+    {
+      "date": "2026-03-02",
+      "used_gb": 582.732765
+    },
+    {
+      "date": "2026-03-03",
+      "used_gb": 585.510451
+    },
+    {
+      "date": "2026-03-04",
+      "used_gb": 588.113775
+    },
+    {
+      "date": "2026-03-05",
+      "used_gb": 590.839382
+    },
+    {
+      "date": "2026-03-06",
+      "used_gb": 593.513486
+    },
+    {
+      "date": "2026-03-07",
+      "used_gb": 596.470836
+    },
+    {
+      "date": "2026-03-08",
+      "used_gb": 599.353487
+    },
+    {
+      "date": "2026-03-09",
+      "used_gb": 602.702287
+    },
+    {
+      "date": "2026-03-10",
+      "used_gb": 605.707368
+    },
+    {
+      "date": "2026-03-11",
+      "used_gb": 608.739108
+    },
+    {
+      "date": "2026-03-12",
+      "used_gb": 611.775126
+    },
+    {
+      "date": "2026-03-13",
+      "used_gb": 614.497693
+    },
+    {
+      "date": "2026-03-14",
+      "used_gb": 617.344708
+    },
+    {
+      "date": "2026-03-15",
+      "used_gb": 620.295055
+    },
+    {
+      "date": "2026-03-16",
+      "used_gb": 623.16973
+    },
+    {
+      "date": "2026-03-17",
+      "used_gb": 626.210766
+    },
+    {
+      "date": "2026-03-18",
+      "used_gb": 629.342942
+    },
+    {
+      "date": "2026-03-19",
+      "used_gb": 632.221766
+    },
+    {
+      "date": "2026-03-20",
+      "used_gb": 635.43992
+    },
+    {
+      "date": "2026-03-21",
+      "used_gb": 638.433979
+    },
+    {
+      "date": "2026-03-22",
+      "used_gb": 642.175753
+    },
+    {
+      "date": "2026-03-23",
+      "used_gb": 645.313864
+    },
+    {
+      "date": "2026-03-24",
+      "used_gb": 648.992705
+    },
+    {
+      "date": "2026-03-25",
+      "used_gb": 652.438476
+    },
+    {
+      "date": "2026-03-26",
+      "used_gb": 655.835401
+    },
+    {
+      "date": "2026-03-27",
+      "used_gb": 659.13709
+    },
+    {
+      "date": "2026-03-28",
+      "used_gb": 662.056287
+    },
+    {
+      "date": "2026-03-29",
+      "used_gb": 664.942528
+    },
+    {
+      "date": "2026-03-30",
+      "used_gb": 668.038257
+    },
+    {
+      "date": "2026-03-31",
+      "used_gb": 671.335942
+    },
+    {
+      "date": "2026-04-01",
+      "used_gb": 674.378972
+    },
+    {
+      "date": "2026-04-02",
+      "used_gb": 677.408394
+    },
+    {
+      "date": "2026-04-03",
+      "used_gb": 680.611468
+    },
+    {
+      "date": "2026-04-04",
+      "used_gb": 684.039028
+    },
+    {
+      "date": "2026-04-05",
+      "used_gb": 687.075354
+    },
+    {
+      "date": "2026-04-06",
+      "used_gb": 689.954461
+    },
+    {
+      "date": "2026-04-07",
+      "used_gb": 692.930319
+    },
+    {
+      "date": "2026-04-08",
+      "used_gb": 695.860308
+    },
+    {
+      "date": "2026-04-09",
+      "used_gb": 699.123266
+    },
+    {
+      "date": "2026-04-10",
+      "used_gb": 703.344677
+    },
+    {
+      "date": "2026-04-11",
+      "used_gb": 706.390364
+    },
+    {
+      "date": "2026-04-12",
+      "used_gb": 709.28601
+    },
+    {
+      "date": "2026-04-13",
+      "used_gb": 712.289722
+    },
+    {
+      "date": "2026-04-14",
+      "used_gb": 715.099462
+    },
+    {
+      "date": "2026-04-15",
+      "used_gb": 717.993199
+    },
+    {
+      "date": "2026-04-16",
+      "used_gb": 720.909163
+    },
+    {
+      "date": "2026-04-17",
+      "used_gb": 723.653444
+    },
+    {
+      "date": "2026-04-18",
+      "used_gb": 726.518402
+    },
+    {
+      "date": "2026-04-19",
+      "used_gb": 729.260038
+    },
+    {
+      "date": "2026-04-20",
+      "used_gb": 732.009577
+    },
+    {
+      "date": "2026-04-21",
+      "used_gb": 735.132575
+    },
+    {
+      "date": "2026-04-22",
+      "used_gb": 737.856446
+    },
+    {
+      "date": "2026-04-23",
+      "used_gb": 740.529478
+    },
+    {
+      "date": "2026-04-24",
+      "used_gb": 743.686649
+    },
+    {
+      "date": "2026-04-25",
+      "used_gb": 746.265239
+    },
+    {
+      "date": "2026-04-26",
+      "used_gb": 748.790596
+    },
+    {
+      "date": "2026-04-27",
+      "used_gb": 751.954256
+    },
+    {
+      "date": "2026-04-28",
+      "used_gb": 754.947494
+    },
+    {
+      "date": "2026-04-29",
+      "used_gb": 758.302326
+    },
+    {
+      "date": "2026-04-30",
+      "used_gb": 760.96906
+    },
+    {
+      "date": "2026-05-01",
+      "used_gb": 763.644138
+    },
+    {
+      "date": "2026-05-02",
+      "used_gb": 766.433842
+    },
+    {
+      "date": "2026-05-03",
+      "used_gb": 769.489741
+    },
+    {
+      "date": "2026-05-04",
+      "used_gb": 772.457062
+    },
+    {
+      "date": "2026-05-05",
+      "used_gb": 775.080025
+    },
+    {
+      "date": "2026-05-06",
+      "used_gb": 777.68478
+    },
+    {
+      "date": "2026-05-07",
+      "used_gb": 780.315232
+    },
+    {
+      "date": "2026-05-08",
+      "used_gb": 782.905772
+    },
+    {
+      "date": "2026-05-09",
+      "used_gb": 785.685788
+    },
+    {
+      "date": "2026-05-10",
+      "used_gb": 788.361321
+    },
+    {
+      "date": "2026-05-11",
+      "used_gb": 790.94968
+    },
+    {
+      "date": "2026-05-12",
+      "used_gb": 793.625835
+    },
+    {
+      "date": "2026-05-13",
+      "used_gb": 796.290637
+    },
+    {
+      "date": "2026-05-14",
+      "used_gb": 799.148671
+    },
+    {
+      "date": "2026-05-15",
+      "used_gb": 801.810506
+    },
+    {
+      "date": "2026-05-16",
+      "used_gb": 804.808695
+    },
+    {
+      "date": "2026-05-17",
+      "used_gb": 807.663026
+    },
+    {
+      "date": "2026-05-18",
+      "used_gb": 810.401206
+    },
+    {
+      "date": "2026-05-19",
+      "used_gb": 813.216635
+    },
+    {
+      "date": "2026-05-20",
+      "used_gb": 815.97971
+    },
+    {
+      "date": "2026-05-21",
+      "used_gb": 819.123174
+    },
+    {
+      "date": "2026-05-22",
+      "used_gb": 821.94724
+    },
+    {
+      "date": "2026-05-23",
+      "used_gb": 824.895067
+    },
+    {
+      "date": "2026-05-24",
+      "used_gb": 827.718571
+    },
+    {
+      "date": "2026-05-25",
+      "used_gb": 831.125449
+    },
+    {
+      "date": "2026-05-26",
+      "used_gb": 834.327781
+    },
+    {
+      "date": "2026-05-27",
+      "used_gb": 837.139517
+    },
+    {
+      "date": "2026-05-28",
+      "used_gb": 840.287207
+    },
+    {
+      "date": "2026-05-29",
+      "used_gb": 843.352082
+    },
+    {
+      "date": "2026-05-30",
+      "used_gb": 846.472434
+    },
+    {
+      "date": "2026-05-31",
+      "used_gb": 849.533911
+    },
+    {
+      "date": "2026-06-01",
+      "used_gb": 853.034396
+    },
+    {
+      "date": "2026-06-02",
+      "used_gb": 856.466103
+    },
+    {
+      "date": "2026-06-03",
+      "used_gb": 859.456002
+    },
+    {
+      "date": "2026-06-04",
+      "used_gb": 862.433405
+    },
+    {
+      "date": "2026-06-05",
+      "used_gb": 865.660729
+    },
+    {
+      "date": "2026-06-06",
+      "used_gb": 868.617324
+    },
+    {
+      "date": "2026-06-07",
+      "used_gb": 872.031326
+    },
+    {
+      "date": "2026-06-08",
+      "used_gb": 875.272978
+    },
+    {
+      "date": "2026-06-09",
+      "used_gb": 878.42019
+    },
+    {
+      "date": "2026-06-10",
+      "used_gb": 881.617019
+    },
+    {
+      "date": "2026-06-11",
+      "used_gb": 884.905367
+    },
+    {
+      "date": "2026-06-12",
+      "used_gb": 888.101961
+    },
+    {
+      "date": "2026-06-13",
+      "used_gb": 891.277544
+    },
+    {
+      "date": "2026-06-14",
+      "used_gb": 894.722114
+    },
+    {
+      "date": "2026-06-15",
+      "used_gb": 897.616415
+    },
+    {
+      "date": "2026-06-16",
+      "used_gb": 901.144844
+    },
+    {
+      "date": "2026-06-17",
+      "used_gb": 904.134452
+    },
+    {
+      "date": "2026-06-18",
+      "used_gb": 907.119328
+    },
+    {
+      "date": "2026-06-19",
+      "used_gb": 910.224808
+    },
+    {
+      "date": "2026-06-20",
+      "used_gb": 913.380957
+    },
+    {
+      "date": "2026-06-21",
+      "used_gb": 917.094304
+    },
+    {
+      "date": "2026-06-22",
+      "used_gb": 919.89329
+    },
+    {
+      "date": "2026-06-23",
+      "used_gb": 922.819998
+    },
+    {
+      "date": "2026-06-24",
+      "used_gb": 925.791939
+    },
+    {
+      "date": "2026-06-25",
+      "used_gb": 928.980549
+    },
+    {
+      "date": "2026-06-26",
+      "used_gb": 932.589192
+    },
+    {
+      "date": "2026-06-27",
+      "used_gb": 935.378571
+    },
+    {
+      "date": "2026-06-28",
+      "used_gb": 938.060257
+    },
+    {
+      "date": "2026-06-29",
+      "used_gb": 940.771607
+    }
+  ],
+  "limitations": "合成データで評価／実データ未検証。90日先は不確実性が大きく、短期の誤差は長期の精度を保証しません。",
+  "model_label": "線形トレンド",
+  "observations": 180,
+  "parameters": {
+    "alpha": null,
+    "fit_count": 180,
+    "fit_end": "2026-06-29",
+    "rate": 2.9816076294052287,
+    "raw_rate": 2.9816076294052287
+  },
+  "plan": {
+    "days_to_deadline": 50,
+    "deadline": "2026-08-18",
+    "hit_date": "2026-09-24",
+    "message": "△ 注意：整備計画を確認してください",
+    "status": "attention",
+    "utilization_pct": 78.39763391666666,
+    "warning_date": "2026-07-06"
+  },
+  "scenarios": [
+    {
+      "label": "緩やか（70%）",
+      "multiplier": 0.7,
+      "plan": {
+        "days_to_deadline": null,
+        "deadline": null,
+        "hit_date": null,
+        "message": "△ 注意：整備計画を確認してください",
+        "status": "attention",
+        "utilization_pct": 78.39763391666666,
+        "warning_date": "2026-07-09"
+      },
+      "values": [
+        942.8587323405836,
+        944.9458576811674,
+        947.032983021751,
+        949.1201083623347,
+        951.2072337029183,
+        953.294359043502,
+        955.3814843840856,
+        957.4686097246694,
+        959.555735065253,
+        961.6428604058367,
+        963.7299857464203,
+        965.8171110870039,
+        967.9042364275876,
+        969.9913617681713,
+        972.0784871087549,
+        974.1656124493386,
+        976.2527377899222,
+        978.3398631305058,
+        980.4269884710895,
+        982.5141138116732,
+        984.6012391522569,
+        986.6883644928405,
+        988.7754898334242,
+        990.8626151740078,
+        992.9497405145916,
+        995.0368658551752,
+        997.1239911957589,
+        999.2111165363425,
+        1001.2982418769262,
+        1003.3853672175098,
+        1005.4724925580934,
+        1007.5596178986772,
+        1009.6467432392608,
+        1011.7338685798444,
+        1013.8209939204281,
+        1015.9081192610117,
+        1017.9952446015955,
+        1020.0823699421791,
+        1022.1694952827627,
+        1024.2566206233464,
+        1026.3437459639301,
+        1028.4308713045136,
+        1030.5179966450974,
+        1032.605121985681,
+        1034.6922473262646,
+        1036.7793726668483,
+        1038.866498007432,
+        1040.9536233480158,
+        1043.0407486885995,
+        1045.127874029183,
+        1047.2149993697667,
+        1049.3021247103504,
+        1051.389250050934,
+        1053.4763753915176,
+        1055.5635007321014,
+        1057.650626072685,
+        1059.7377514132686,
+        1061.8248767538523,
+        1063.912002094436,
+        1065.9991274350198,
+        1068.0862527756033,
+        1070.173378116187,
+        1072.2605034567707,
+        1074.3476287973542,
+        1076.434754137938,
+        1078.5218794785217,
+        1080.6090048191054,
+        1082.696130159689,
+        1084.7832555002726,
+        1086.8703808408563,
+        1088.9575061814398,
+        1091.0446315220236,
+        1093.1317568626073,
+        1095.2188822031908,
+        1097.3060075437745,
+        1099.3931328843582,
+        1101.4802582249417,
+        1103.5673835655255,
+        1105.6545089061092,
+        1107.7416342466927,
+        1109.8287595872764,
+        1111.9158849278601,
+        1114.0030102684436,
+        1116.0901356090274,
+        1118.177260949611,
+        1120.2643862901948,
+        1122.3515116307785,
+        1124.438636971362,
+        1126.5257623119458,
+        1128.6128876525295
+      ]
+    },
+    {
+      "label": "中心予測（100%）",
+      "multiplier": 1,
+      "plan": {
+        "days_to_deadline": 50,
+        "deadline": "2026-08-18",
+        "hit_date": "2026-09-24",
+        "message": "△ 注意：整備計画を確認してください",
+        "status": "attention",
+        "utilization_pct": 78.39763391666666,
+        "warning_date": "2026-07-06"
+      },
+      "values": [
+        943.7532146294052,
+        946.7348222588105,
+        949.7164298882157,
+        952.698037517621,
+        955.6796451470261,
+        958.6612527764314,
+        961.6428604058366,
+        964.6244680352419,
+        967.606075664647,
+        970.5876832940523,
+        973.5692909234575,
+        976.5508985528628,
+        979.532506182268,
+        982.5141138116733,
+        985.4957214410784,
+        988.4773290704836,
+        991.4589366998889,
+        994.4405443292941,
+        997.4221519586994,
+        1000.4037595881045,
+        1003.3853672175098,
+        1006.366974846915,
+        1009.3485824763203,
+        1012.3301901057255,
+        1015.3117977351308,
+        1018.2934053645359,
+        1021.2750129939412,
+        1024.2566206233464,
+        1027.2382282527517,
+        1030.219835882157,
+        1033.201443511562,
+        1036.1830511409673,
+        1039.1646587703726,
+        1042.1462663997777,
+        1045.127874029183,
+        1048.1094816585883,
+        1051.0910892879936,
+        1054.0726969173986,
+        1057.054304546804,
+        1060.0359121762092,
+        1063.0175198056145,
+        1065.9991274350195,
+        1068.9807350644248,
+        1071.9623426938301,
+        1074.9439503232352,
+        1077.9255579526405,
+        1080.9071655820458,
+        1083.888773211451,
+        1086.8703808408563,
+        1089.8519884702614,
+        1092.8335960996667,
+        1095.815203729072,
+        1098.796811358477,
+        1101.7784189878823,
+        1104.7600266172876,
+        1107.741634246693,
+        1110.723241876098,
+        1113.7048495055033,
+        1116.6864571349086,
+        1119.6680647643138,
+        1122.649672393719,
+        1125.6312800231242,
+        1128.6128876525295,
+        1131.5944952819345,
+        1134.5761029113398,
+        1137.5577105407451,
+        1140.5393181701504,
+        1143.5209257995557,
+        1146.5025334289608,
+        1149.484141058366,
+        1152.4657486877713,
+        1155.4473563171764,
+        1158.4289639465817,
+        1161.410571575987,
+        1164.3921792053923,
+        1167.3737868347973,
+        1170.3553944642026,
+        1173.337002093608,
+        1176.3186097230132,
+        1179.3002173524183,
+        1182.2818249818235,
+        1185.2634326112288,
+        1188.245040240634,
+        1191.2266478700392,
+        1194.2082554994445,
+        1197.1898631288498,
+        1200.171470758255,
+        1203.1530783876601,
+        1206.1346860170654,
+        1209.1162936464707
+      ]
+    },
+    {
+      "label": "指定ペース（130%）",
+      "multiplier": 1.3,
+      "plan": {
+        "days_to_deadline": 30,
+        "deadline": "2026-07-29",
+        "hit_date": "2026-09-04",
+        "message": "△ 注意：整備計画を確認してください",
+        "status": "attention",
+        "utilization_pct": 78.39763391666666,
+        "warning_date": "2026-07-04"
+      },
+      "values": [
+        944.6476969182268,
+        948.5237868364536,
+        952.3998767546803,
+        956.2759666729072,
+        960.1520565911339,
+        964.0281465093608,
+        967.9042364275875,
+        971.7803263458144,
+        975.6564162640411,
+        979.532506182268,
+        983.4085961004947,
+        987.2846860187217,
+        991.1607759369483,
+        995.0368658551753,
+        998.912955773402,
+        1002.7890456916286,
+        1006.6651356098556,
+        1010.5412255280824,
+        1014.4173154463092,
+        1018.2934053645359,
+        1022.1694952827628,
+        1026.0455852009895,
+        1029.9216751192164,
+        1033.797765037443,
+        1037.67385495567,
+        1041.5499448738967,
+        1045.4260347921236,
+        1049.3021247103504,
+        1053.1782146285773,
+        1057.0543045468041,
+        1060.9303944650308,
+        1064.8064843832576,
+        1068.6825743014845,
+        1072.558664219711,
+        1076.434754137938,
+        1080.3108440561648,
+        1084.1869339743916,
+        1088.0630238926183,
+        1091.9391138108451,
+        1095.815203729072,
+        1099.6912936472988,
+        1103.5673835655255,
+        1107.4434734837523,
+        1111.3195634019792,
+        1115.1956533202058,
+        1119.0717432384326,
+        1122.9478331566595,
+        1126.8239230748864,
+        1130.7000129931132,
+        1134.5761029113398,
+        1138.4521928295667,
+        1142.3282827477935,
+        1146.2043726660202,
+        1150.080462584247,
+        1153.9565525024739,
+        1157.8326424207007,
+        1161.7087323389273,
+        1165.5848222571542,
+        1169.460912175381,
+        1173.337002093608,
+        1177.2130920118345,
+        1181.0891819300614,
+        1184.9652718482882,
+        1188.8413617665149,
+        1192.7174516847417,
+        1196.5935416029686,
+        1200.4696315211954,
+        1204.3457214394225,
+        1208.2218113576491,
+        1212.0979012758758,
+        1215.9739911941028,
+        1219.8500811123295,
+        1223.726171030556,
+        1227.6022609487832,
+        1231.47835086701,
+        1235.3544407852364,
+        1239.2305307034635,
+        1243.1066206216904,
+        1246.9827105399172,
+        1250.8588004581438,
+        1254.7348903763707,
+        1258.6109802945975,
+        1262.4870702128242,
+        1266.363160131051,
+        1270.2392500492779,
+        1274.1153399675047,
+        1277.9914298857316,
+        1281.8675198039582,
+        1285.743609722185,
+        1289.619699640412
+      ]
+    }
+  ],
+  "selected_model": "linear",
+  "settings": {
+    "buffer": 7,
+    "capacity": 1200,
+    "horizon": 90,
+    "lead": 30,
+    "pace": 130,
+    "warning_pct": 80
+  },
+  "source": "合成データ：安定した増加 / 探索用seed 0"
+}

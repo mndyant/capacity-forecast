@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "notice": "合成データで評価／実データ未検証",
+  "development_seeds": [0, 1, 2, 3, 4],
+  "final_seeds": [100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119],
+  "scenarios": ["stable", "accelerating", "weekday", "regime", "burst", "stagnant"],
+  "observed_days": 180,
+  "future_days": 90,
+  "development_origins": [60, 67, 74, 81, 88],
+  "audit_origins": [120, 127, 134, 141, 148],
+  "models": ["mean30", "linear", "ses"],
+  "mean_window_increments": 30,
+  "linear_window": "all_history_anchored_at_last_observation",
+  "ses_alpha": 0.2,
+  "ses_init": "first_increment",
+  "selection": "30日間MAE。最小×1.05+0.01GB以内をmean30,linear,ses順で優先",
+  "capacity_rule": "seedが偶数なら1100GB、奇数なら2200GB。未来の正解とは無関係に固定",
+  "lead_days": 30,
+  "buffer_days": 7,
+  "hash_rule": "UTF-8テキストはCRLFをLFに正規化しSHA-256。JSON設定はsort_keysで正準化",
+  "uncertainty": "統計的予測区間は実装しない。条件別ペースのシナリオのみ"
+}

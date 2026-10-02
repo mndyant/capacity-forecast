@@ -1,0 +1,20 @@
+{
+  "kind": "合成データ",
+  "scenario": "burst",
+  "seed": 105,
+  "start": "2026-01-01",
+  "days": 180,
+  "future_days": 90,
+  "settings": {
+    "initial_gb": 400.0,
+    "daily_gb": 3.0,
+    "noise": 0.35
+  },
+  "events_index": [
+    21,
+    32,
+    46,
+    53
+  ],
+  "generator_version": 1
+}

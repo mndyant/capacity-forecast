@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>容量予測・整備計画 | Capacity Note</title><link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script></head>
+<body>
+<header><a class="brand" href="/">▦ <span>Capacity Note</span></a><span class="local">● ローカルで動作 · APIキー不要</span></header>
+<main>
+<div class="intro"><div><span class="eyebrow">容量予測・整備計画</span><h1>足りなくなる前に、<br class="mobile">動き出せる計画を。</h1><p>日々の使用量から、容量不足の見込みと整備の着手期限を確認します。</p></div><span class="tag">合成データで評価／実データ未検証</span></div>
+<form id="forecast-form">
+<section class="panel"><div class="section-title"><span class="step">01</span><h2>データと計画条件</h2><span class="sub">サンプルを選んで、そのまま試せます</span></div>
+<div class="data-row"><label>サンプルデータ<select name="sample" id="sample">{% for key, label in samples.items() %}<option value="{{key}}">{{label}}</option>{% endfor %}</select></label><div class="upload"><label for="file">またはCSVを取り込む</label><input id="file" name="file" type="file" accept=".csv"><small>UTF-8・date,used_gb（GB）・日次90点以上／推奨180点</small></div><a id="sample-download" href="/api/sample/stable">サンプルCSV ↓</a></div>
+<div class="settings"><label>上限容量（GB）<input name="capacity" id="capacity" type="number" value="1200" min="0.01" max="1000000000000" step="any" required></label><label>警戒水準（%）<input name="warning_pct" type="number" value="80" min="1" max="100" step="any" required></label><label>予測期間<select name="horizon"><option value="7">7日</option><option value="30">30日</option><option value="90" selected>90日</option></select></label><label>整備期間（日）<input name="lead" type="number" value="30" min="0" max="3650" required><small>調達・承認・作業にかかる日数</small></label><label>安全余裕（日）<input name="buffer" type="number" value="7" min="0" max="3650" required></label><label>比較する増加ペース（%）<input name="pace" type="number" value="130" min="1" max="500" step="any" required><small>中心予測を100%とした条件</small></label></div>
+<div class="action-row"><p>削除や大幅な運用変更のない、蓄積するデータが対象です。</p><button id="calculate" type="submit">予測と着手期限を確認 <span>→</span></button></div><p id="error" class="error" role="alert" hidden></p><p id="progress" role="status" aria-live="polite"></p>
+</section></form>
+<div id="empty" class="empty"><span>↗</span><h2>次の整備を、数字から考える。</h2><p>「予測と着手期限を確認」を押すと、ここに計画が表示されます。</p><small>予測・期限計算・説明はすべてローカルで処理します。</small></div>
+<div id="results" hidden>
+<div class="result-heading"><h2>整備計画の見通し</h2><span id="context"></span><span id="stale" class="tag" hidden>条件が変わりました。再計算してください</span></div>
+<p id="source" class="source"></p>
+<div class="cards"><article class="metric"><span>現在の使用率</span><strong id="usage"></strong><small id="used"></small><div class="meter"><i id="meter"></i></div></article><article class="metric"><span>容量不足の見込み日</span><strong id="hit"></strong><small>指定した予測期間内の中心予測</small></article><article class="metric featured"><span>整備の着手期限</span><strong id="deadline"></strong><small id="deadline-detail"></small></article><article class="metric"><span>対応状態</span><strong id="status"></strong><small id="status-note"></small></article></div>
+<section class="panel chart-panel"><div class="section-title"><span class="step">02</span><h2>使用量の見通し</h2><span class="sub">容量（GB）</span></div><div class="legend"><span class="actual">━ 過去の実績</span><span class="forecast">┄ 中心予測</span><span class="condition">┄ 指定ペース</span><span class="limit">━ 容量上限</span><span class="warning">┄ 警戒水準</span></div><div id="chart"></div><p class="chart-note">縦の境界線より右は未来の予測です。合成データの未来の正解は、この画面には使用・表示しません。</p></section>
+<section class="panel"><div class="section-title"><span class="step">03</span><h2>増加ペースが変わったら</h2></div><p>条件を変えたシナリオです。確率や「95%予測区間」を表すものではありません。</p><div id="scenarios" class="scenario-grid"></div><h3>計算結果の説明</h3><p id="explanation"></p><p class="notice">90日先は不確実性が大きく、短期の評価が良くても長期の精度を保証しません。未到達は「将来も不足しない」という意味ではありません。期限は観測終了日を基準に、休日を含む暦日で計算します。</p></section>
+<details class="panel" id="accuracy"><summary>精度を確認 <span>単純な予測との比較・評価条件・限界</span></summary><p id="evaluation-context"></p><p id="selection"></p><div class="table-scroll"><table><caption>監査区間のバックテスト（GB）。小さいほど誤差が小さい</caption><thead><tr><th>手法</th><th>期間</th><th>期間MAE</th><th>RMSE</th><th>終点絶対誤差</th><th>累積増加誤差</th><th>基準比改善</th></tr></thead><tbody id="metrics"></tbody></table></div><p>MAE＝平均的なずれ、RMSE＝大きな誤差を重く扱う指標。累積増加誤差は終点の絶対誤差で、同じ観測起点を使うため使用量の終点誤差と一致します。マイナスの改善率は比較基準より悪い結果です。</p><p>モデル選択と監査は時間順に分離しています。foldの評価期間は重複するため、独立標本としての信頼区間は計算していません。未来の正解はまだなく、ここでは7日・30日の過去バックテストのみを表示します。合成データ全体の未使用90日評価は docs/evaluation.md に記録しています。</p></details>
+<div class="export-row"><span>この条件と計算結果を保存</span><button type="button" id="export-csv" class="secondary">予測CSV ↓</button><button type="button" id="export-json" class="secondary">結果JSON ↓</button></div>
+</div>
+<footer>Capacity Note <span>ローカルデモ · 合成データで評価／実データ未検証 · LLM未接続</span></footer>
+</main></body></html>
