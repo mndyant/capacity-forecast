@@ -28,6 +28,18 @@ $('forecast-form').addEventListener('change', invalidate);
 // 折りたたまれた項目に入力エラーがある場合は開いて修正できるようにする。
 $('forecast-form').addEventListener('invalid',event=>{const details=event.target.closest('details');if(details)details.open=true;},true);
 inputSource();
+document.querySelectorAll('[data-demo-capacity]').forEach(button => {
+  button.addEventListener('click', () => {
+    $('forecast-form').reset();
+    $('sample').value = 'stable';
+    $('file').value = '';
+    $('capacity').value = button.dataset.demoCapacity;
+    $('sample-download').href = '/api/sample/stable';
+    inputSource();
+    invalidate();
+    $('forecast-form').requestSubmit();
+  });
+});
 $('forecast-form').addEventListener('submit', async event => {
   event.preventDefault();
   if ($('calculate').disabled) return;
@@ -39,12 +51,14 @@ $('forecast-form').addEventListener('submit', async event => {
   text('progress','過去データで手法を比較し、予測と整備期限を計算しています…');
   try {
     const response = await fetch('/api/forecast',{method:'POST',body:data});
-    const body = await response.json();
+    const body = response.headers.get('content-type')?.includes('application/json')
+      ? await response.json()
+      : {error: 'サーバーに接続できませんでした。時間をおいて再度お試しください。'};
     if(!response.ok) throw new Error(body.error || '計算に失敗しました。');
     result=body; render();
     text('progress','計算完了。予測結果とサマリを更新しました。');
   } catch(error) {
-    text('error',error.message || '接続できません。ローカルサーバーを確認してください。');
+    text('error',error.message || '接続できません。通信環境を確認し、再度お試しください。');
     $('error').hidden=false; text('progress','');
     invalidate();
   } finally {controls.forEach(control=>control.disabled=false);}

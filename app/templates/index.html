@@ -3,20 +3,30 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>容量予測・整備計画</title>
+  <meta name="description" content="容量が足りなくなる日と、整備に着手する期限を予測。サンプルと条件変更で体験できるポートフォリオデモです。">
   <link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script>
 </head>
 <body>
-<header class="app-header"><a class="brand" href="/">容量予測・整備計画</a><span class="local">ローカル環境</span></header>
+<header class="app-header"><a class="brand" href="/">容量予測・整備計画</a><a class="local" href="https://github.com/mndyant/capacity-forecast" target="_blank" rel="noopener noreferrer">ソースコード ↗</a></header>
 <main>
   <div class="page-heading"><div><h1>容量予測・整備計画</h1><p>使用量、容量上限への到達日、整備の着手期限を確認します。</p></div><span class="tag">合成データで評価／実データ未検証</span></div>
+  <p class="notice">公開デモです。サンプルは合成データです。入力CSVは計算にのみ使用し、アプリは保存しません。初回の計算には数秒かかることがあります。</p>
   <div class="workspace">
     <aside class="controls" aria-label="予測条件">
       <form id="forecast-form" class="panel">
         <div class="section-title"><h2>予測条件</h2></div>
+        <fieldset class="quick-demo"><legend>まずはサンプルで体験</legend>
+          <p>上限容量を変えると、整備の期限はどう変わる？</p>
+          <div class="demo-buttons">
+            <button type="button" class="secondary" data-demo-capacity="1200">標準の計画</button>
+            <button type="button" class="secondary" data-demo-capacity="1000">期限超過の例</button>
+            <button type="button" class="secondary" data-demo-capacity="9999">余裕がある例</button>
+          </div><small>同じ180日分の合成データで計算します。今日ではなく、観測終了日を基準に比較します。</small>
+        </fieldset>
         <fieldset><legend>入力データ</legend>
           <label for="sample">サンプル<select name="sample" id="sample">{% for key, label in samples.items() %}<option value="{{key}}">{{label}}</option>{% endfor %}</select></label>
           <a id="sample-download" href="/api/sample/stable">サンプルCSVを保存</a>
-          <div class="upload"><label for="file">CSVファイル<input id="file" name="file" type="file" accept=".csv"></label><small>UTF-8 / date,used_gb（GB）<br>連続した日次90点以上・推奨180点</small><button id="clear-file" type="button" class="text-button" hidden>ファイル選択を解除</button></div>
+          <div class="upload"><label for="file">CSVファイル（任意）<input id="file" name="file" type="file" accept=".csv"></label><small>UTF-8 / date,used_gb（GB）<br>連続した日次90〜3650点・2MB以内<br>計算時にサーバーへ送信します。アプリはCSVをファイルやDBに保存しません。機密情報を含まないデータでお試しください。</small><button id="clear-file" type="button" class="text-button" hidden>ファイル選択を解除</button></div>
           <p id="input-source" class="input-source" aria-live="polite">使用データ：サンプル</p>
         </fieldset>
         <fieldset><legend>計画条件</legend><div class="settings">
@@ -71,6 +81,6 @@
       </div>
     </div>
   </div>
-  <footer><span>容量予測・整備計画</span><span>ローカル処理・APIキー不要・LLM未接続</span></footer>
+  <footer><span>容量予測・整備計画 — ポートフォリオデモ</span><span>Pythonによる計算・APIキー不要・LLM未接続</span></footer>
 </main>
 </body></html>

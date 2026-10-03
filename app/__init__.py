@@ -1,4 +1,4 @@
-"""ローカル専用Webアプリ。通常の予測経路はtruth/metadataを開かない。"""
+"""容量予測Webアプリ。通常の予測経路はtruth/metadataを開かない。"""
 import math
 from pathlib import Path
 import pandas as pd
@@ -60,7 +60,7 @@ def compute(frame, settings, source):
 
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder=str(ROOT/'public'/'static'), static_url_path='/static')
     app.config['MAX_CONTENT_LENGTH'] = 2*1024*1024
     app.json.ensure_ascii = False
 
@@ -104,6 +104,13 @@ def create_app():
 
     @app.errorhandler(500)
     def server_error(_):
-        return jsonify(error='計算を完了できませんでした。ローカルサーバーのログとサンプルCSVの配置を確認してください。'),500
+        return jsonify(error='計算を完了できませんでした。時間をおいて再度お試しください。'),500
+
+    @app.after_request
+    def response_headers(response):
+        if request.path.startswith('/api/'):
+            response.headers['Cache-Control'] = 'no-store'
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        return response
 
     return app

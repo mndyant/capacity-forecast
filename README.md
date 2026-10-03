@@ -1,6 +1,9 @@
 # 容量予測・整備計画
 
-使用量の増加から「容量不足の見込み日」と「整備に着手する期限」を表示する、日本語のローカルWebアプリです。**合成データで評価／実データ未検証**。
+使用量の増加から「容量不足の見込み日」と「整備に着手する期限」を表示する、日本語のWebアプリです。**合成データで評価／実データ未検証**。
+
+**[ブラウザでデモを試す](https://capacity-forecast.vercel.app)** — ログイン不要。「標準の計画」「期限超過の例」「余裕がある例」で同じ観測データを再計算できます。
+CSVは計算時にサーバーへ送信されますが、アプリはファイル・DBに保存しません。日付の基準は観測終了日で、閲覧時の今日ではありません。
 
 入力条件と予測結果を分けた業務用UIです。現状・予測・着手期限・対応事項・過去評価のサマリを表示し、TXT／JSONで保存できます。サマリは既存の計算結果から生成するため、追加データやAPIキーは不要です。
 
@@ -11,7 +14,8 @@
 Python 3.14.3で確認。WSL・Docker・Node.js・APIキーはアプリの起動に不要です。依存の初回インストールにはインターネット接続が必要ですが、起動後のアプリは外部サービスやCDNへ通信しません。
 
 ```powershell
-cd C:\Users\morim\dev\capacity-forecast
+git clone https://github.com/mndyant/capacity-forecast.git
+cd capacity-forecast
 python -m venv .venv
 .\.venv\Scripts\python -m pip install -r requirements.txt
 .\.venv\Scripts\python run.py
@@ -19,7 +23,7 @@ python -m venv .venv
 
 [http://127.0.0.1:5000](http://127.0.0.1:5000) を開きます。終了はサーバーのターミナルで Ctrl+C。既に仮想環境を作成済みなら最後の1行だけで起動できます。PowerShellの実行ポリシーを変更する必要はありません。
 
-Flaskの開発サーバーを127.0.0.1だけにバインドしています。公開・ログイン・クラウド配置は初版の対象外です。[Flask公式の起動方法](https://flask.palletsprojects.com/en/stable/quickstart/)に従っています。
+ローカル起動はFlaskの開発サーバーを127.0.0.1にバインドします。公開デモはVercelのPython Functionで動作します。[公開構成と検証](docs/vercel-demo.md)を参照してください。
 
 ## 試し方
 
@@ -109,4 +113,4 @@ UI検証は任意の開発依存です。アプリの利用には不要です。
 
 条件別シナリオは確率付き予測区間ではありません。90日以内の未到達は将来の安全を保証しません。監査テストは特定の不変条件と入力境界を確認するもので、あらゆるリークや過学習がないという保証ではありません。
 
-初版の数値・日付はPythonで計算し、説明は日本語テンプレートです。LLMは未接続で、API連携の実績とは表現しません。将来の説明接続用に `Explainer` と [入力スキーマ](docs/explanation-input.schema.json) を分離しました。為替予測・費用計算・LLM接続・公開運用は次の段階です。
+初版の数値・日付はPythonで計算し、説明は日本語テンプレートです。LLMは未接続で、API連携の実績とは表現しません。将来の説明接続用に `Explainer` と [入力スキーマ](docs/explanation-input.schema.json) を分離しました。為替予測・費用計算・LLM接続・実業務での運用は次の段階です。

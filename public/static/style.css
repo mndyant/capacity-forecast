@@ -4,6 +4,11 @@ body { margin: 0; }
 .app-header { height: 56px; padding: 0 28px; background: #fff; border-bottom: 1px solid #d8e0e8; display: flex; align-items: center; justify-content: space-between; }
 .brand { color: #243447; font-size: 15px; font-weight: 700; text-decoration: none; }
 .local { color: #667587; font-size: 12px; border-left: 1px solid #d8e0e8; padding-left: 16px; }
+.quick-demo { background: #eef4fa; border: 1px solid #d5e2ef; border-radius: 6px; padding: 12px; }
+.quick-demo legend { padding: 0 5px; }
+.quick-demo p { margin: 0 0 10px; font-size: 12px; }
+.demo-buttons { display: grid; gap: 7px; }
+.demo-buttons button { text-align: left; }
 main { max-width: 1600px; padding: 24px 28px 0; margin: auto; }
 .page-heading { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
 h1 { font-size: 24px; line-height: 1.4; margin: 0 0 6px; }

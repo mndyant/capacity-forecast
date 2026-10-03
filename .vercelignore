@@ -1,0 +1,13 @@
+.git
+.venv
+.env*
+__pycache__
+.pytest_cache
+node_modules
+tests
+docs
+scripts
+data/demo/truth
+data/demo/metadata
+evaluation/results
+capacity-forecast-codex-handoff.md
