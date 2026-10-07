@@ -31,9 +31,25 @@ def test_summary_matches_planning_boundaries(capacity, headline):
         assert '算出不可' in summary['text']
 
 
+def assert_saved_result_matches(actual, expected):
+    # NumPyの最終ビットはOSで異なる。日付・分類・手法・整数は厳密に比較する。
+    if isinstance(expected, float):
+        assert actual == pytest.approx(expected, rel=1e-12, abs=1e-10)
+    elif isinstance(expected, dict):
+        assert actual.keys() == expected.keys()
+        for key in expected:
+            assert_saved_result_matches(actual[key], expected[key])
+    elif isinstance(expected, list):
+        assert len(actual) == len(expected)
+        for value, saved in zip(actual, expected):
+            assert_saved_result_matches(value, saved)
+    else:
+        assert actual == expected
+
+
 def test_summary_keeps_evaluated_forecast_unchanged():
     previous = json.loads((ROOT/'docs/verification/sample-result.json').read_text(encoding='utf-8'))
     frame = read_csv((ROOT/'data/demo/observed/stable-0.csv').read_bytes())
     current = compute(frame, parse_settings({}), '合成データ')
     for key in ('forecast', 'plan', 'parameters', 'selected_model', 'history', 'scenarios'):
-        assert current[key] == previous[key]
+        assert_saved_result_matches(current[key], previous[key])

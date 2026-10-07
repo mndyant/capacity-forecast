@@ -5,3 +5,12 @@ node_modules/
 *.log
 .env
 .evaluation-v1/
+
+# Local credentials and user-provided datasets
+.env.*
+!.env.example
+*.pem
+*.key
+data/custom/
+data/private/
+.tmp-demo/

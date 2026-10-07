@@ -4,14 +4,41 @@
 
 入力条件と予測結果を分けた業務用UIです。現状・予測・着手期限・対応事項・過去評価のサマリを表示し、TXT／JSONで保存できます。サマリは既存の計算結果から生成するため、追加データやAPIキーは不要です。
 
+**[公開デモを試す](https://capacity-forecast.vercel.app)**（合成データで試してください）。デモは [feat/vercel-demo ブランチ](https://github.com/mndyant/capacity-forecast/tree/feat/vercel-demo) の公開構成で、このREADMEのローカル手順はmainの構成です。公開デモのCSV入力はクラウドのサーバーへ送信されます。アプリによるファイル・DB保存はありませんが、ローカルだけで処理したい場合は下記の手順を使用してください。
+
 ![PC画面](docs/screenshots/business-ui/desktop-1280.png)
+
+## この作品で確認できること
+
+業務上の期限を、入力検証 → 予測 → 過去の実績との比較 → 計画 → 画面・ファイル出力まで実装したポートフォリオです。Python / Flask / NumPy / pandas と、HTML / CSS / JavaScript / SVGを使用しています。
+
+| 観点 | 実装・根拠 |
+|---|---|
+| 業務課題の整理 | 予測値を、対応を始める期限や日付付きの計画へ変換 |
+| APIと入力品質 | CSVの欠損・重複・不正値・サイズ上限を検証し、日本語でエラー表示 |
+| 評価の設計 | 時系列で開発・監査・最終採点を分離し、単純な比較基準と全候補を同条件で採点 |
+| 再現性 | 固定seed、凍結ハッシュ、全ケースのJSON/CSV、再現手順を公開 |
+| 利用画面 | PC・390px幅の画面、グラフ、TXT/CSV/JSON出力、古い結果の保存防止 |
+
+選択手法の使用量MAEは次の通りです。7日・30日はわずかに改善しましたが、**90日は基準より33.9%悪化**しました。
+
+| 採点期間 | 比較基準 MAE（GB） | 選択手法 MAE（GB） |
+|---|---:|---:|
+| 1〜7日 | 4.666 | 4.340 |
+| 1〜30日 | 13.851 | 13.200 |
+| 1〜90日 | 34.039 | 45.570 |
+
+到達日・着手期限のMAEは比較可能な34ケースで0.676日。70ケースは期間内未到達、16ケースは既に満杯で日付誤差から除外しています。固定した容量設定で見逃し・誤警報が0件でも、実務の検知性能を示す結果ではありません。
+
+[評価結果](docs/evaluation.md) / [公開内容の点検](docs/publication-review.md) / [素材・依存の由来](docs/provenance.md)
 
 ## 起動（Windows / PowerShell）
 
 Python 3.14.3で確認。WSL・Docker・Node.js・APIキーはアプリの起動に不要です。依存の初回インストールにはインターネット接続が必要ですが、起動後のアプリは外部サービスやCDNへ通信しません。
 
 ```powershell
-cd C:\Users\morim\dev\capacity-forecast
+git clone https://github.com/mndyant/capacity-forecast.git
+cd capacity-forecast
 python -m venv .venv
 .\.venv\Scripts\python -m pip install -r requirements.txt
 .\.venv\Scripts\python run.py
@@ -19,7 +46,7 @@ python -m venv .venv
 
 [http://127.0.0.1:5000](http://127.0.0.1:5000) を開きます。終了はサーバーのターミナルで Ctrl+C。既に仮想環境を作成済みなら最後の1行だけで起動できます。PowerShellの実行ポリシーを変更する必要はありません。
 
-Flaskの開発サーバーを127.0.0.1だけにバインドしています。公開・ログイン・クラウド配置は初版の対象外です。[Flask公式の起動方法](https://flask.palletsprojects.com/en/stable/quickstart/)に従っています。
+Flaskの開発サーバーを127.0.0.1だけにバインドしています。mainはローカル実行用です。ログインや実業務での公開運用は未実装です。[Flask公式の起動方法](https://flask.palletsprojects.com/en/stable/quickstart/)に従っています。
 
 ## 試し方
 
@@ -64,10 +91,7 @@ UTF-8、列順は `date,used_gb`、単位GB、連続した日次90〜3650点（�
 合成データは6シナリオ（安定・加速・曜日差・構造変化・突発登録・停滞）。探索seed 0〜4、最終seed 100〜119を使用。シナリオごとに乱数ストリームを分けています。観測180日と採点用未来90日は別ファイルです。
 
 ```powershell
-# 同じ設定・依存で同じCSVを生成（既存のデモを上書きします）
-.\.venv\Scripts\python -m scripts.generate_demo
-
-# 任意設定は別ディレクトリへ。最終評価済みデータは変更しないでください
+# 同梱の評価データを変更せず、別ディレクトリへ生成
 .\.venv\Scripts\python -m scripts.generate_demo --output data/custom --scenario burst --seed 42 --start 2026-01-01 --days 180 --future 90 --initial-gb 400 --daily-gb 3 --noise 0.35
 
 # 監査・APIテスト
@@ -109,4 +133,18 @@ UI検証は任意の開発依存です。アプリの利用には不要です。
 
 条件別シナリオは確率付き予測区間ではありません。90日以内の未到達は将来の安全を保証しません。監査テストは特定の不変条件と入力境界を確認するもので、あらゆるリークや過学習がないという保証ではありません。
 
-初版の数値・日付はPythonで計算し、説明は日本語テンプレートです。LLMは未接続で、API連携の実績とは表現しません。将来の説明接続用に `Explainer` と [入力スキーマ](docs/explanation-input.schema.json) を分離しました。為替予測・費用計算・LLM接続・公開運用は次の段階です。
+初版の数値・日付はPythonで計算し、説明は日本語テンプレートです。LLMは未接続で、API連携の実績とは表現しません。将来の説明接続用に `Explainer` と [入力スキーマ](docs/explanation-input.schema.json) を分離しました。為替予測・費用計算・LLM接続・実業務での運用は次の段階です。
+
+## 関連作品と開発でのAI利用
+
+[batch-runtime-forecast](https://github.com/mndyant/batch-runtime-forecast)は処理件数・所要時間から完了日時と締切超過を予測する作品です。本作は減少のない蓄積量を対象に、容量不足日から整備期間を逆算します。
+
+生成AIを開発・レビューの補助に使用しています。[レビュー記録](docs/claude-review.txt)と[仕様](capacity-forecast-codex-handoff.md)を公開しています。アプリの数値とサマリはPythonとテンプレートで生成し、実行時にLLMへ接続しません。AIによるレビューは第三者認証や精度保証ではありません。
+
+## 公開と利用条件
+
+採用選考・学習時の閲覧と動作確認を目的に公開しています。**再利用ライセンスの付与は保留**しており、MIT等のオープンソースライセンスは付与していません。[利用条件](RIGHTS.md)と[素材・依存の由来](docs/provenance.md)を参照してください。
+
+同梱CSVは生成スクリプトによる合成データです。通常の予測経路は観測CSVだけを使い、評価用の未来の正解を予測入力に渡しません。取込CSVはローカル起動時には自分のPCのサーバーへ送信され、アプリはファイルやDBへ保存しません。出力JSONには入力履歴を含むため、共有する場合は内容を確認してください。
+
+実業務・顧客・組織の非公開データを公開デモへ入力しないでください。実運用には実データでの外部検証、認証、アクセス制御、負荷制限、監視などを別途設計する必要があります。
